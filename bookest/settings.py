@@ -80,8 +80,12 @@ AUTH_USER_MODEL = "books.User"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "d2jqegl58r5omp",
+        "HOST": "ec2-3-214-2-141.compute-1.amazonaws.com",
+        "PORT": "5432",
+        "USER": "wkswcvssxjdepv",
+        "PASSWORD": "1e8d8a31e708f9bf7d30c082525be7490832a3c4de41602456736725f85a2ea2"
     }
 }
 
@@ -129,7 +133,6 @@ STATIC_ROOT = BASE_DIR / 'books/static'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 
 STATICFILES_DIRS = [
