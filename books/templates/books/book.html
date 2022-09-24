@@ -1,0 +1,138 @@
+{% extends "books/layout.html" %}
+
+{% block body %}
+{% if messages %}
+<div class="addedSuccesful">
+{% for message in messages %}
+<h5{% if message.tags %} class="{{ message.tags }} addedSuccesful"{% endif %}>{{ message }}</h5><br>
+{% endfor %}
+</div>
+{% endif %}
+
+<h2 class="bookSwitch" id="bookTitle">{{book.title}}</h2>
+<div class="bookSwitch" id="bookContainer">
+    <div class="bookTopInfo" > 
+    <div><img src="{{book.image}}" width="150" alt=""></div>
+    <div id="bookOverView">
+        
+        {% if book.author%}
+        <div class="bookInfoAuthor"><b>{{book.author}}</b></div>
+        {% endif %}
+        {% if book.publishedDate%}
+        <div class="bookInfoItem">published: {{book.publishedDate}}</div>
+        {% endif %}
+        {% if book.pageCount %}
+        <div class="bookInfoItem">page count: {{book.pageCount}}</div>
+        {% endif %}
+        {% if book.categories %}
+        <div class="bookInfoItem">categories: {{book.categories}}</div>
+        {% endif %}
+        <div class="bookInfoItem">look on
+            <a id="amazon" href="https://www.amazon.com/dp/{{book.isbn}} ">Amazon</a>
+            <a id="googleBook" href="{{book.googleBooks}}">Google Books</a>
+        </div>
+    </div>
+    </div>
+    {% if book.description %}
+    <div class="lead bookSwitch" id="description">
+        <h4>About:</h4><span id="desc">{{book.description}}</span>
+    </div>
+    {% endif %}
+    <div id="addBookShelf">
+        <h5>Add to bookshelf</h5>
+        <form class="form-group" method="post" action="/add_my_books/{{book.google_id}}---{{book.isbn}}---{{book.title}}">
+            {% csrf_token %}
+            <div class="form-check">
+                <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="will_be_read" id="will_be_read">
+                <label class="form-check-label" for="will_be_read">will be read</label>
+            </div>
+            <div class="form-check">
+                <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="has_been_read" id="has_been_read">
+                <label class="form-check-label" for="has_been_read">has been read</label>
+            </div>
+            <input id="addBookShelfButton"  class="btn btn-success btn-sm" type="submit" value="Add">
+        </form>
+    </div>
+</div>
+
+<div class="bookSwitch review" >
+    {% if user.is_authenticated %}
+        <form id="reviewForm" class="form-group" action="/get_review/{{book.google_id}}---{{book.isbn}}---{{book.title}}" method="post" >
+            {% csrf_token %}
+            <div >{{reviewForm}}</textarea></div>
+            <input id="sendReview" class="btn btn-success" type="submit" value="Send">
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}"><h5>Login to write review</h5></a>
+    {% endif %}
+
+    {% if reviews %}
+        <h4>Reviews:</h4>
+    {% else %}
+        <h4>Reviews:</h4>
+    {% endif %}
+    <hr class="bookSwitch ">
+
+    <div class="reviewSection">
+        {% for review in reviews %}
+        <div class="reviewItem border border-secondary rounded"> 
+            <div class="reviewUsername">{{review.owner.username}}'s review:</div> 
+            <div class="timeStamp">{{review.time}}</div>   
+            <div class="reviewContent lead">{{review.content}}</div> 
+            {% if user.is_authenticated and review.owner.username == user.username %}
+            <div class="deleteReview"><button id="{{review.id}}" class="delete btn btn-danger btn-sm">delete</button></div>
+            {% endif %}
+
+        </div>     
+    {% empty %}
+        <h5 class="pageEnd">No reviews yet.</h5>
+    {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".checkbox").forEach(checkbox => {
+        let status = checkbox.checked
+        checkbox.onclick = () => {
+            console.log(status)
+            if (status) {
+                checkbox.checked = false
+            } else if (!status) {
+                document.querySelectorAll(".checkbox").forEach(checkbox => {
+                    checkbox.checked = false
+                })
+                checkbox.checked = true
+            }
+        }
+    })
+
+    document.querySelector("#reviewForm").addEventListener("submit", event => {
+        if (!document.querySelector("#reviewArea").value) {
+            alert("You must not send empty review!")
+            event.preventDefault()
+        }
+    })
+
+    document.querySelectorAll(".delete").forEach(button => {
+        button.onclick = function() {
+            if (confirm("Are you sure to delete your review?")) {
+                fetch(`/delete_review/${this.id}`)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result.success)
+                    let review = this.parentElement.parentElement
+                    review.style.animationPlayState = 'running';
+                    review.addEventListener('animationend', () => {
+                        review.remove();
+                    });
+                });
+            }
+        }
+    });
+
+    document.querySelectorAll(".reviewContent").forEach(review => {
+        text = review.textContent
+        review.innerHTML = text
+    })
+</script>
+{% endblock %}

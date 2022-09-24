@@ -1,0 +1,43 @@
+{% extends 'books/layout.html' %}
+
+
+{% block body %}
+
+<div id="theShelf">
+    {% if messages %}
+        <div class="messages">
+        {% for message in messages %}
+          <h5{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h5><br>
+        {% endfor %}
+        </div>
+    {% else %}
+    <div class="messages"><br></div>
+    {% endif %}
+
+    <h3>Will be read</h3>
+    <div id="topShelf" class="readShelfModern">
+    {% for book_w in will_be_read %}
+        <img id="{{book_w}}" class="bookOnTheShelf" src="http://books.google.com/books/content?id={{book_w}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" width="50" alt="no image">
+    {% empty %}
+        <span id="emptyShelf">no books yet</span>
+    {% endfor %}
+    </div>
+
+    
+    <h3 id="readShelf">Has been read</h3>
+    <div id="bottomShelf" class="readShelfModern">
+    {% for book_h in has_been_read %}
+        <img id="{{book_h}}" class="bookOnTheShelf" src="http://books.google.com/books/content?id={{book_h}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" width="50" alt="no image">
+    {% empty %}
+        <span id="emptyShelf">no books yet</span>
+    {% endfor %}
+    </div>
+</div>
+<script>
+    document.querySelectorAll(".bookOnTheShelf").forEach(book => {
+        book.onclick = () => {
+            window.location.href = `/book/${book.id}`
+        }
+    });
+</script>
+{% endblock %}

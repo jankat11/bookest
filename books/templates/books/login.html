@@ -1,0 +1,23 @@
+{% extends "books/layout.html" %}
+
+{% block body %}
+<div class="bookSwitch loginView">
+    <h2>Login</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" class="loginForm" method="post">
+        {% csrf_token %}
+        <div class="loginDjForm">{{loginForm}}</div>
+        <input class="btn btn-primary loginButton" id="submitLogin" value="Login" type="submit">
+    </form>
+
+    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+</div>
+<script>
+    document.querySelector(".loginDjForm").firstElementChild.className = "form-control"
+    document.querySelector(".loginDjForm").lastElementChild.className = "form-control"
+</script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "books/layout.html" %}
+
+{% block body %}
+<h2 id="indexHeader">best seller:</h2>
+<select name="bookGenre" id="bookGenre" class="form-select" aria-label="Default select example">
+    <option  value="fiction">fiction</option>
+    <option  value="nonfiction">non-fiction</option>
+</select>
+<div id="bestSeller">
+    {% for book in books %}
+    <div data-isbn="{{book.isbn}}" data-id="{{book.id}}" class="bookDiv bookDivModern">
+        <div class="lamp lampModern">
+            <span class="rounded-circle candles candlesModern candleLeft">🕯️</span><span class="rounded-circle candles candlesModern candleRight">🕯️</span>
+        </div>
+        <h6 class="bookName">{{book.title}}</h6>
+        <img src="{{book.image}}" width="120" alt="no image">
+        <h6 class="author">{{book.authors}}</h6>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

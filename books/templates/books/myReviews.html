@@ -1,0 +1,45 @@
+{% extends 'books/layout.html' %}
+
+{% block body %}
+<div class="bookSwitch review" >
+    <h4 id="myRevHeader">My Reviews:</h4>
+    <div class="reviewSection">
+        {% for review in reviews %}
+        <div class="myReviewItem"><hr>
+            <a class="reviewImage" href="/book/{{review.on_book.google_id}}">
+                <img width="60" src="http://books.google.com/books/content?id={{review.on_book.google_id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" alt="">
+            </a> 
+                <div class="reviewUsername">{{review.on_book.title}}<div class="lastTime">{{review.time}}</div></div>
+                <div class="lastDelete" ><button id="{{review.id}}" class="delete btn btn-danger btn-sm">X</button></div> 
+            <div class="reviewContent lead">"{{review.content}}"</div> 
+        </div>     
+        {% empty %}
+            <h5 class="pageEnd">you have no reviews yet.</h5>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".delete").forEach(button => {
+        button.onclick = function() {
+            if (confirm("Are you sure to delete your review?")) {
+                fetch(`/delete_review/${this.id}`)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result.success)
+                    let review = this.parentElement.parentElement
+                    review.style.animationPlayState = 'running';
+                    review.addEventListener('animationend', () => {
+                        review.remove();
+                    });
+                });
+            }
+        }
+    });
+    document.querySelectorAll(".reviewContent").forEach(review => {
+        text = review.textContent
+        review.innerHTML = text
+    })
+</script>
+
+{% endblock %}
