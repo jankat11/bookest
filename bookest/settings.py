@@ -13,16 +13,21 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+print(SECRET_KEY)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3k4zpzn@j4-!vf6*7d%lqwo&-w+bzqj&r!g=muh+&6u_p!9$x#'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -126,7 +131,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / 'books/static'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'books/static') 
 
 
 # Default primary key field type
@@ -135,7 +141,7 @@ STATIC_ROOT = BASE_DIR / 'books/static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-STATICFILES_DIRS = [
+""" STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
-]
+] """
