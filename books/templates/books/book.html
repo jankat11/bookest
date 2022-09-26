@@ -40,7 +40,7 @@
     {% endif %}
     <div id="addBookShelf">
         <h5>Add to bookshelf</h5>
-        <form class="form-group" method="post" action="/add_my_books/{{book.google_id}}---{{book.isbn}}---{{book.title}}">
+        <form class="form-group" data-login="{{user.is_authenticated}}" id="addBookForm" method="post" action="/add_my_books/{{book.google_id}}---{{book.isbn}}---{{book.title}}">
             {% csrf_token %}
             <div class="form-check">
                 <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="will_be_read" id="will_be_read">
@@ -91,6 +91,14 @@
 </div>
 
 <script>
+
+    document.getElementById("addBookForm").onsubmit = function(event) {
+        if (this.dataset.login === "False") {
+            event.preventDefault()
+            document.location.href = "/login"
+        }  
+    }
+
     document.querySelectorAll(".checkbox").forEach(checkbox => {
         let status = checkbox.checked
         checkbox.onclick = () => {
@@ -104,7 +112,7 @@
                 checkbox.checked = true
             }
         }
-    })
+    });
 
     document.querySelector("#reviewForm").addEventListener("submit", event => {
         if (!document.querySelector("#reviewArea").value) {
@@ -133,6 +141,7 @@
     document.querySelectorAll(".reviewContent").forEach(review => {
         text = review.textContent
         review.innerHTML = text
-    })
+    });
+    
 </script>
 {% endblock %}

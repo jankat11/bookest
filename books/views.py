@@ -169,7 +169,7 @@ def add_my_books(request, ids):
                 pass
             book_shelf.has_been_read.add(book)
             book_shelf.save()
-    messages.info(request, "✔️ Successfully added to your library")
+    messages.info(request, "✔️ Successfully added to bookshelf")
     return HttpResponseRedirect(reverse("my_books"))
 
 

@@ -339,6 +339,7 @@
 
 #theShelf {
     margin: 20px;
+
 }
 
 #emptyShelf {
@@ -365,12 +366,14 @@
     background-image: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("/static/books/images/shelfModern.png");
     background-repeat: repeat;
     width: 70%;
+    min-height: 100px;
 }
 
 .readShelfAntique {
     background-image: url("/static/books/images/shelfAntique.png");
     background-repeat: repeat;
     width: 70%;
+    min-height: 100px;
 }
 
 #bottomShelf, .pageEnd {
