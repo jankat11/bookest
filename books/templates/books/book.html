@@ -112,7 +112,6 @@
     document.querySelectorAll(".checkbox").forEach(checkbox => {
         let status = checkbox.checked
         checkbox.onclick = () => {
-            console.log(status)
             if (status) {
                 checkbox.checked = false
             } else if (!status) {

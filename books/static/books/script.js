@@ -3,10 +3,6 @@ const adding = 40
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const historyLarge = document.querySelector("#historyLarge")
-    const modernLarge = document.querySelector("#modernLarge")
-    const historySmall = document.querySelector("#historySmall")
-    const modernSmall = document.querySelector("#modernSmall")
     const topBar = document.querySelector("#topBar")
     const bookIconHistory = document.querySelector("#bookIconHistory")
     const bookIconModern = document.querySelector("#bookIconModern")
@@ -33,10 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         enlightCandles()
     }
 
-
-    // adjust sizes between mobile/desktop
-    resizeTop()
-    window.onresize = resizeTop
 
 
     // switch themes modern or antique
@@ -89,15 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // fix nav-bar when scrolling
     window.addEventListener('scroll', function () {
-        if (window.scrollY > 180) {
+        if (window.scrollY > 165) {
             topBar.classList.add('fixed-top');
-            window.innerWidth < "1024" ? topItems.style.marginBottom = "85px" : topItems.style.marginBottom = "75px";
-            topBar.style.margin = "0px";
-            menuItems.style.marginTop = window.scrollY - 170;
+            document.querySelector("#blockBody").style.marginTop = "52px"
+            menuItems.style.marginTop = window.scrollY - 110;
         } else {
+            document.querySelector("#blockBody").style.marginTop = "0px"
             topBar.classList.remove('fixed-top');
             topItems.style.marginBottom = "0px";
-            window.innerWidth < "1024" ? topBar.style.marginTop = "32px" : topBar.style.marginTop = "26px";
+            topBar.style.marginTop = "0px" 
+            menuItems.style.marginTop = "0px"
         }
     });
 
@@ -179,29 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function resizeTop() {
-        if (theme.innerHTML == "modern") {
-            modernLarge.style.display = "none";
-            modernSmall.style.display = "none";
-            if (window.innerWidth < "1024") {
-                historySmall.style.display = "block";
-                historyLarge.style.display = "none";
-            } else if (window.innerWidth >= "1024") {
-                historySmall.style.display = "none";
-                historyLarge.style.display = "block";
-            }
-        } else if (theme.innerHTML == "antique") {
-            historyLarge.style.display = "none"
-            historySmall.style.display = "none"
-            if (window.innerWidth >= "1024") {
-                modernLarge.style.display = "block";
-                modernSmall.style.display = "none";
-            } else if (window.innerWidth < "1024") {
-                modernLarge.style.display = "none";
-                modernSmall.style.display = "block";
-            }
-        }
-    }
 
 
     // enlight candles with onmouse event
@@ -227,8 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function turnAntique() {
         localStorage.setItem('status', "antique");
         document.querySelector("#menu").className = "navbar-toggler menuHistory mobile";
-        modernLarge.style.display = "none";
-        modernSmall.style.display = "none";
         topBar.style.backgroundColor = "#1f1000be"
         topBar.style.color = "#fcf5e7"
         topBar.style.boxShadow = "0px 1px 3px 1px rgba(247, 245, 131, 0.288)"
@@ -238,7 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
         bookIconHistory.style.display = "inline-block"
         title.style.color = "#fada9e"
         subTitle.style.color = "#fada9e"
-        window.innerWidth < "1024" ? historySmall.style.display = "block" : historyLarge.style.display = "block"
         theme.innerHTML = "modern"
         theme.style.backgroundColor = "#fada9e"
         theme.style.color = "black"
@@ -251,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.className = "reviewItem border border-warning rounded"
             })
         }
+        document.querySelector(".topPıc") ? document.querySelector(".topPıc").className = "topPıcAntique" : null
         if (document.querySelector("#theShelf")) {
             document.querySelector("#theShelf").style.color = "#fada9e"
             document.querySelector("#topShelf").className = "readShelfAntique"
@@ -290,9 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function turnModern() {
         localStorage.setItem('status', "modern");
         document.querySelector("#menu").className = "navbar-toggler menu mobile"
-        window.innerWidth > "1024" ? modernLarge.style.display = "block" : modernSmall.style.display = "block";
-        historyLarge.style.display = "none"
-        historySmall.style.display = "none"
         bookIconModern.style.display = "inline-block"
         bookIconHistory.style.display = "none"
         title.style.color = "#584801"
@@ -307,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
         theme.style.color = "white"
         profile ? profile.style.backgroundColor = "#02bbab31" : ""
         profile ? profile.style.color = "black" : ""
+        document.querySelector(".topPıcAntique") ? document.querySelector(".topPıcAntique").className = "topPıc" : null
         document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-primary loginButton" : ""
         document.querySelector("#submitRegister") ? document.querySelector("#submitRegister").className = "btn btn-primary loginButton" : ""
         if (document.querySelectorAll(".reviewItem")) {
