@@ -1,3 +1,4 @@
+from urllib import request
 from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
@@ -80,10 +81,25 @@ def more_results(request, result):
 
 def book(request, id):
     reviews = ""
+    status = None
+    book = None
     book_info = get_book(id)
+
     try:
         book = Book.objects.get(google_id=id)
         reviews = book.reviews.all()
+        try:
+            book_shelf = BookShelf.objects.get(owner=request.user)
+            check_has_read = book_shelf.has_been_read.get(id=book.id)
+            status = "exist in read"
+        except:
+            pass
+        try:
+            book_shelf = BookShelf.objects.get(owner=request.user)
+            check_will_read = book_shelf.will_be_read.get(id=book.id)
+            status = "exist in will"
+        except:
+            pass
     except:
         pass
     return render(request, "books/book.html", {
@@ -91,7 +107,9 @@ def book(request, id):
         "id": id,
         "book": book_info,
         "reviews": reviews,
-        "reviewForm": ReviewForm()
+        "reviewForm": ReviewForm(),
+        "status": status,
+        "bookId": book.id if book else ""
     })
 
 
@@ -197,6 +215,24 @@ def delete_review(request, review_id):
     return JsonResponse({
         "success": "the review deleted successfully"
     })
+
+
+@login_required
+def remove_from_bookshelf(request, book_id):
+    book_shelf = BookShelf.objects.get(owner=request.user)
+    book = Book.objects.get(pk=book_id)
+    try:
+        book_shelf.will_be_read.remove(book)
+    except:
+        pass
+    try:
+        book_shelf.has_been_read.remove(book)
+    except:
+        pass
+    return JsonResponse({
+        "success": "the book removed successfully"
+    })
+
 
 
 def login_view(request):

@@ -42,16 +42,21 @@
         <h5>Add to bookshelf</h5>
         <form class="form-group" data-login="{{user.is_authenticated}}" id="addBookForm" method="post" action="/add_my_books/{{book.google_id}}---{{book.isbn}}---{{book.title}}">
             {% csrf_token %}
-            <div class="form-check">
-                <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="will_be_read" id="will_be_read">
-                <label class="form-check-label" for="will_be_read">will be read</label>
-            </div>
-            <div class="form-check">
-                <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="has_been_read" id="has_been_read">
-                <label class="form-check-label" for="has_been_read">has been read</label>
-            </div>
+            
+                <div class="form-check">
+                    <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="will_be_read" id="will_be_read">
+                    <label class="form-check-label" for="will_be_read">will be read</label>
+                </div>
+                <div class="form-check">
+                    <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="has_been_read" id="has_been_read">
+                    <label class="form-check-label" for="has_been_read">has been read</label>
+                </div>
+         
             <input id="addBookShelfButton"  class="btn btn-success btn-sm" type="submit" value="Add">
         </form>
+        {% if status %}
+            <button id="removeBookShelfButton" data-book="{{bookId}}" class="btn btn-danger btn-sm">Remove From Bookshelf</button>
+        {% endif %}
     </div>
 </div>
 
@@ -97,6 +102,11 @@
             event.preventDefault()
             document.location.href = "/login"
         }  
+        let unChecked = 0
+        document.querySelectorAll(".checkbox").forEach(checkbox => {
+            checkbox.checked == false ? unChecked++ : null
+        })
+        unChecked == 2 ? event.preventDefault() : null
     }
 
     document.querySelectorAll(".checkbox").forEach(checkbox => {
@@ -143,5 +153,14 @@
         review.innerHTML = text
     });
     
+    document.querySelector("#removeBookShelfButton").onclick = function() {
+        confirm("Are you sure to remove this book from your bookshelf")
+        fetch(`/remove_from_bookshelf/${this.dataset.book}`)
+        .then(response => response.json())
+        .then(result => console.log(result))
+    }
+
+
+
 </script>
 {% endblock %}
