@@ -494,6 +494,21 @@
     padding: 5px;
 }
 
+#rmspinner, #addspinner {
+    position: relative;
+    bottom: 5px;
+    margin-left: 10px;
+    width: 50px;
+    height: 20px;
+    display: none;
+}
+
+#addspinner {
+    position: relative;
+    top: 5px;
+}
+
+
 .addedSuccesful {
     margin-left: 20px;
     margin-top: 20px;

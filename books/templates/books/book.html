@@ -1,5 +1,5 @@
 {% extends "books/layout.html" %}
-
+{% load static %}
 {% block body %}
 {% if messages %}
 <div class="addedSuccesful">
@@ -53,9 +53,17 @@
                 </div>
          
             <input id="addBookShelfButton"  class="btn btn-success btn-sm" type="submit" value="Add">
+            <span id="addspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>
         </form>
         {% if status %}
-            <button id="removeBookShelfButton" data-book="{{bookId}}" class="btn btn-danger btn-sm">Remove From Bookshelf</button>
+       
+                <span id="buttonWrapper">
+                    <button id="removeBookShelfButton" data-book="{{bookId}}" class="btn btn-danger btn-sm">
+                        Remove From Bookshelf
+                    </button>
+                </span>
+                <span id="rmspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>
+          
         {% endif %}
     </div>
 </div>
@@ -106,7 +114,14 @@
         document.querySelectorAll(".checkbox").forEach(checkbox => {
             checkbox.checked == false ? unChecked++ : null
         })
-        unChecked == 2 ? event.preventDefault() : null
+        if (unChecked == 2) {
+            event.preventDefault()
+        } else {
+            document.querySelector("#removeBookShelfButton").disabled = true
+            document.querySelector("#addBookShelfButton").disabled = true
+            document.querySelector("#addspinner").style.display = "inline-block"
+        } 
+        
     }
 
     document.querySelectorAll(".checkbox").forEach(checkbox => {
@@ -153,13 +168,23 @@
     });
     
     document.querySelector("#removeBookShelfButton").onclick = function() {
-        confirm("Are you sure to remove this book from your bookshelf")
-        fetch(`/remove_from_bookshelf/${this.dataset.book}`)
-        .then(response => response.json())
-        .then(result => console.log(result))
+        const spinner = document.querySelector("#rmspinner")
+        const wrap = document.querySelector("#buttonWrapper")
+        if(confirm("Are you sure to remove this book from your bookshelf")) {
+            spinner.style.display = "inline-block"
+            document.querySelector("#addBookShelfButton").disabled = true
+            this.disabled = true
+            fetch(`/remove_from_bookshelf/${this.dataset.book}`)
+            .then(response => response.json())
+            .then(result => {
+                document.querySelector("#addBookShelfButton").disabled = false
+                console.log(result)
+                spinner.innerHTML = "✔️"
+                spinner.style.top = "1px"
+                wrap.innerHTML = "book removed"
+            })
+        }
     }
-
-
 
 </script>
 {% endblock %}
