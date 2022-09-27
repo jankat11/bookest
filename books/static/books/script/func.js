@@ -1,4 +1,15 @@
-
+let pagination = 0
+const adding = 40
+const topBar = document.querySelector("#topBar")
+const bookIconHistory = document.querySelector("#bookIconHistory")
+const bookIconModern = document.querySelector("#bookIconModern")
+const title = document.querySelector("#title")
+const subTitle = document.querySelector("#subTitle")
+const theme = document.querySelector("#change")
+const topItems = document.querySelector("#topItems")
+const menuItems = document.querySelector("#menuItems")
+const profile = document.querySelector("#profile")
+const description = document.querySelector("#desc")
 
 function bestSellers(genre) {
     fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genre}.json?api-key=LqUHIwL9cMprnPyH5reZJcaOH0In51Am`)
