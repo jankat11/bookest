@@ -104,6 +104,12 @@
 </div>
 
 <script>
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("#removeBookShelfButton").disabled = false
+        document.querySelector("#addBookShelfButton").disabled = false
+        document.querySelector("#addspinner").style.display = "block"
+    })
 
     document.getElementById("addBookForm").onsubmit = function(event) {
         if (this.dataset.login === "False") {
