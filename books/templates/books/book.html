@@ -120,11 +120,11 @@
             document.querySelector("#removeBookShelfButton").disabled = true
             document.querySelector("#addBookShelfButton").disabled = true
             document.querySelector("#addspinner").style.display = "inline-block"
-            window.onunload = () => {
+            setTimeout(() => {
                 document.querySelector("#removeBookShelfButton").disabled = false
                 document.querySelector("#addBookShelfButton").disabled = false
                 document.querySelector("#addspinner").style.display = "none"
-            }
+            }, 3000)            
         } 
     } 
 
