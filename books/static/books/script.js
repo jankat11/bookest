@@ -81,9 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // fix nav-bar when scrolling
     window.addEventListener('scroll', function () {
+        const section = document.querySelector("#blockBody")
         if (window.scrollY > 165) {
             topBar.classList.add('fixed-top');
-            document.querySelector("#blockBody").style.marginTop = "52px"
+            window.innerWidth < 600 ? section.style.marginTop = "61px" : section.style.marginTop = "50px"
             menuItems.style.marginTop = window.scrollY - 110;
         } else {
             document.querySelector("#blockBody").style.marginTop = "0px"
