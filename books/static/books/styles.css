@@ -13,6 +13,8 @@
 
 #topItems {
     padding: 20px;
+    padding-right: 0px;
+    padding-bottom: 10px;
     width: 550px;
     box-shadow: 2px 2px 4px 1px #42668dc7;
     margin-bottom: 0px;
@@ -29,7 +31,7 @@
 
 #topItems {
     background-color: #9aa5bd47;
-    height: 150px;
+    height: 110px;
 }
 
 
@@ -74,19 +76,20 @@
 
 #title {
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 10px;
     position: relative;
-    top: 15px;
+    top: -2px;
     font-weight: bolder;
     font-size: 35px;
 }
 
+
 #subTitle {
-    margin-top: 15px;
-    margin-left: 10px;
+    margin-left: 75px;
+    position: relative;
+    bottom: 19px;
     font-weight: 500;
-    font-size: 25px;
-    
+    font-size: 15px;
 }
 
 .searchForm {
@@ -183,7 +186,7 @@
 
 #change {
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 20px;
 }
 
@@ -641,7 +644,7 @@
 }
 @media (max-width: 600px) {
     #topItems {
-        width: 280px;
+        width: 285px;
     }
 }
 
@@ -651,26 +654,7 @@
         font-size: 35px;
     }
 }
-@media (max-width: 1023px) {
-    #subTitle {
-        font-size: 20px;
-    }
-}
 
-@media (max-width: 600px) {
-    #title {
-        font-size: 25px;
-        position: relative;
-        top: 5px;
-        right: 10px;
-    }
-}
-@media (max-width: 600px) {
-    #subTitle {
-        font-size: 20px;
-        position: relative;
-    }
-}
 
 @media (max-width: 1023px) {
     #moreResults {
@@ -682,7 +666,9 @@
     #change {
         font-size: small;
         padding: 0px;
-        right: 30px;
-        top: 20px;
+        padding-left: 1px;
+        padding-right: 1px;
+        right: 5px;
+        top: 30px;
     }
 }

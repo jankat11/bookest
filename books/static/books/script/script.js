@@ -63,10 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // fix nav-bar when scrolling
     window.addEventListener('scroll', function () {
         const section = document.querySelector("#blockBody")
-        if (window.scrollY > 150) {
+        if (window.scrollY > 110) {
             topBar.classList.add('fixed-top');
             section.style.marginTop = "45px"
-            menuItems.style.marginTop = window.scrollY - 105;
+            menuItems.style.marginTop = window.scrollY - 65;
         } else {
             document.querySelector("#blockBody").style.marginTop = "0px"
             topBar.classList.remove('fixed-top');
@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // text correction
     if (description) {
         text = description.textContent
         description.innerHTML = text
