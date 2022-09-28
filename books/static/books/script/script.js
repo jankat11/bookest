@@ -1,6 +1,6 @@
 
 
-document.addEventListener("DOMContentLoaded", () => {
+
 
     // remember theme if changed before and load it 
     if (localStorage.getItem("status")) {
@@ -103,5 +103,5 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-});
+
 
