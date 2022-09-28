@@ -265,6 +265,17 @@
     padding: 20px;
 }
 
+.lightPlate {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 250px;
+    height: 103px;
+    z-index: 5;
+    display: none;
+    background-image: linear-gradient(#ddba786b, #854d051a);
+}
+
 .bookDivModern {
     background-image: linear-gradient(rgba(231, 231, 231, 0.527), rgba(219, 218, 218, 0.644));
 }
