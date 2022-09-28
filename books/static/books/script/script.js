@@ -1,6 +1,4 @@
 
-
-    document.body.style.display = "none"
     // remember theme if changed before and load it 
     if (localStorage.getItem("status")) {
         let status = localStorage.getItem("status")
