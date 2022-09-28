@@ -53,6 +53,7 @@ function enlightCandles() {
     document.querySelectorAll(".bookDiv").forEach(book => {
         book.addEventListener("mousemove", () => lightCandle(book))
         book.addEventListener("mouseleave", () => darkCandle(book))
+        window.addEventListener("unload", () => darkCandle(book))
     })
 }
 

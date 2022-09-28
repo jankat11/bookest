@@ -14,7 +14,7 @@
 #topItems {
     padding: 20px;
     width: 550px;
-    box-shadow: 1px 1px 3px 1px #4b5c6ea8;
+    box-shadow: 2px 2px 4px 1px #42668dc7;
     margin-bottom: 0px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 #topItems {
-    background-color: #929dbf33;
+    background-color: #9aa5bd47;
     height: 150px;
 }
 
@@ -84,7 +84,7 @@
 #subTitle {
     margin-top: 15px;
     margin-left: 10px;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 25px;
     
 }

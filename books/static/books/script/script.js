@@ -41,10 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
             let id = book.dataset.id
             window.location.href = `/book/${id}`
         }
-        book.addEventListener("touchstart", () => {
-            lightCandle(book)
-            setTimeout(() => darkCandle(book), 3000)
-        })
     });
 
 
