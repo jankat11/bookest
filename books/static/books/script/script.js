@@ -1,14 +1,17 @@
 
 
-document.addEventListener("DOMContentLoaded", () => {
-
+    document.body.style.display = "none"
     // remember theme if changed before and load it 
     if (localStorage.getItem("status")) {
         let status = localStorage.getItem("status")
         if (status == "antique") {
             turnAntique()
+            document.body.style.display = "block"
         } else if (status == "modern")
             turnModern()
+            document.body.style.display = "block"
+    } else {
+        document.body.style.display = "block"
     }
 
 
@@ -103,6 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-});
+
 
 
