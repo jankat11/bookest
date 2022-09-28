@@ -21,7 +21,7 @@
             <img id="bookIconModern" class="rounded-circle" src="{% static 'books/images/bookIconModern.png' %}" alt="not loaded">
             <img id="bookIconHistory" style="display: none;" class="rounded-circle" src="{% static 'books/images/bookIconHistory.png' %}" alt="not loaded">
             <div id="title">BOOKEST</div>
-            <h3 id="subTitle">Internet Book Database</h3>
+            <div id="subTitle">Internet Book Database</div>
         </div>
     </div>
     {% if user.is_authenticated %}
@@ -56,7 +56,7 @@
         </button>
     </nav>
     <div class="collapse mobile" id="navbarToggleExternalContent">
-        <div id="menuItems" class="bg-light p-4">
+        <div id="menuItems" class="p-4">
             {% if user.is_authenticated %}  
             <a class="nav-link mobileNav" href="{% url 'my_books' %}"><span class="mobileNav rounded">My Books</span> </a>
             {% endif %} 

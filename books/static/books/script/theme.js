@@ -1,3 +1,4 @@
+
 //FUNCTIONS TO TOGGLE BETWEEN THEMES ANTIQUE/MODERN
 
 function turnAntique() {
@@ -10,13 +11,14 @@ function turnAntique() {
     topItems.style.backgroundColor = "#dbe6ff46"
     bookIconModern.style.display = "none"
     bookIconHistory.style.display = "inline-block"
-    title.style.color = "#fada9e"
-    subTitle.style.color = "#fada9e"
+    title.style.color = "#f8ffd9"
+    subTitle.style.color = "#dae1bd"
     theme.innerHTML = "modern"
     theme.style.backgroundColor = "#fada9e"
     theme.style.color = "black"
     profile ? profile.style.backgroundColor = "#462303" : ""
     profile ? profile.style.color = "#fada9e" : ""
+    document.querySelector("#menuItems").style.backgroundColor = "#dae1bd"
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-warning loginButton" : ""
     document.querySelector("#submitRegister") ? document.querySelector("#submitRegister").className = "btn btn-warning loginButton" : ""
     if (document.querySelectorAll(".reviewItem")) {
@@ -66,8 +68,8 @@ function turnModern() {
     document.querySelector("#menu").className = "navbar-toggler menu mobile"
     bookIconModern.style.display = "inline-block"
     bookIconHistory.style.display = "none"
-    title.style.color = "#584801"
-    subTitle.style.color = "#584801"
+    title.style.color = "#4e4417"
+    subTitle.style.color = "#3c361c"
     topBar.style.color = "black"
     topBar.style.boxShadow = "1px 1px 3px 1px rgba(131, 185, 247, 0.658)"
     topBar.style.backgroundColor = "#01807531"
@@ -78,6 +80,7 @@ function turnModern() {
     theme.style.color = "white"
     profile ? profile.style.backgroundColor = "#02bbab31" : ""
     profile ? profile.style.color = "black" : ""
+    document.querySelector("#menuItems").style.backgroundColor = "whitesmoke"
     document.querySelector(".topPıcAntique") ? document.querySelector(".topPıcAntique").className = "topPıc" : null
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-primary loginButton" : ""
     document.querySelector("#submitRegister") ? document.querySelector("#submitRegister").className = "btn btn-primary loginButton" : ""

@@ -41,6 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
             let id = book.dataset.id
             window.location.href = `/book/${id}`
         }
+        book.addEventListener("touchstart", () => {
+            lightCandle(book)
+            setTimeout(() => darkCandle(book), 3000)
+        })
     });
 
 
@@ -70,10 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // fix nav-bar when scrolling
     window.addEventListener('scroll', function () {
         const section = document.querySelector("#blockBody")
-        if (window.scrollY > 165) {
+        if (window.scrollY > 150) {
             topBar.classList.add('fixed-top');
-            window.innerWidth < 600 ? section.style.marginTop = "61px" : section.style.marginTop = "50px"
-            menuItems.style.marginTop = window.scrollY - 110;
+            section.style.marginTop = "45px"
+            menuItems.style.marginTop = window.scrollY - 105;
         } else {
             document.querySelector("#blockBody").style.marginTop = "0px"
             topBar.classList.remove('fixed-top');

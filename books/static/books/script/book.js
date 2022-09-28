@@ -67,21 +67,25 @@ document.querySelectorAll(".reviewContent").forEach(review => {
     review.innerHTML = text
 });
 
-document.querySelector("#removeBookShelfButton").onclick = function() {
-    const spinner = document.querySelector("#rmspinner")
-    const wrap = document.querySelector("#buttonWrapper")
-    if(confirm("Are you sure to remove this book from your bookshelf")) {
-        spinner.style.display = "inline-block"
-        document.querySelector("#addBookShelfButton").disabled = true
-        this.disabled = true
-        fetch(`/remove_from_bookshelf/${this.dataset.book}`)
-        .then(response => response.json())
-        .then(result => {
-            document.querySelector("#addBookShelfButton").disabled = false
-            console.log(result)
-            spinner.innerHTML = "✔️"
-            spinner.style.top = "1px"
-            wrap.innerHTML = "book removed"
-        })
+if(document.querySelector("#removeBookShelfButton")) {
+    document.querySelector("#removeBookShelfButton").onclick = function() {
+        const spinner = document.querySelector("#rmspinner")
+        const wrap = document.querySelector("#buttonWrapper")
+        if(confirm("Are you sure to remove this book from your bookshelf")) {
+            spinner.style.display = "inline-block"
+            document.querySelector("#addBookShelfButton").disabled = true
+            this.disabled = true
+            fetch(`/remove_from_bookshelf/${this.dataset.book}`)
+            .then(response => response.json())
+            .then(result => {
+                document.querySelector("#addBookShelfButton").disabled = false
+                console.log(result)
+                spinner.innerHTML = "✔️"
+                spinner.style.top = "1px"
+                wrap.innerHTML = "book removed"
+            })
+        }
     }
 }
+
+

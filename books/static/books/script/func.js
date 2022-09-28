@@ -51,17 +51,22 @@ function bestSellers(genre) {
 // enlight candles with onmouse event
 function enlightCandles() {
     document.querySelectorAll(".bookDiv").forEach(book => {
-        book.addEventListener("mousemove", () => {
-            book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc783"
-            book.firstElementChild.firstElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
-            book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc783"
-            book.firstElementChild.lastElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
-        })
-        book.addEventListener("mouseleave", () => {
-            book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc700"
-            book.firstElementChild.firstElementChild.style.boxShadow = "none"
-            book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc700"
-            book.firstElementChild.lastElementChild.style.boxShadow = "none"
-        })
+        book.addEventListener("mousemove", () => lightCandle(book))
+        book.addEventListener("mouseleave", () => darkCandle(book))
     })
+}
+
+
+function darkCandle(book) {
+    book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc700"
+    book.firstElementChild.firstElementChild.style.boxShadow = "none"
+    book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc700"
+    book.firstElementChild.lastElementChild.style.boxShadow = "none" 
+}
+
+function lightCandle(book) { 
+    book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc783"
+    book.firstElementChild.firstElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
+    book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc783"
+    book.firstElementChild.lastElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
 }
