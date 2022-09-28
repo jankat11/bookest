@@ -11,6 +11,7 @@ const menuItems = document.querySelector("#menuItems")
 const profile = document.querySelector("#profile")
 const description = document.querySelector("#desc")
 
+
 function bestSellers(genre) {
     fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genre}.json?api-key=LqUHIwL9cMprnPyH5reZJcaOH0In51Am`)
     .then(response => response.json())
@@ -28,33 +29,37 @@ function bestSellers(genre) {
                 let authors = result["items"][0]["volumeInfo"]["authors"].toString().replace(",", ", ")
                 let id = result["items"][0]["id"]
                 let book = { "isbn": isbn, "image": image, "title": title, "authors": authors, "id": id }
-                let div = document.createElement("div")
-                let lamp = theme.innerHTML == "antique" ? "lamp lampModern" : "lamp lampAntique"
-                let candles = theme.innerHTML == "antique" ? '<span class="rounded-circle candles candlesModern candleLeft">🕯️</span><div class="candlesModern lightPlate"></div><span class="rounded-circle candles candlesModern candleRight">🕯️</span>' : '<span class="rounded-circle candles candlesAntique candleLeft">🕯️</span><div class="lightPlate"></div><span class="rounded-circle candles candlesAntique candleRight">🕯️</span>'
-                div.style.color = theme.innerHTML == "modern" ? "#fada9e" : "black"
-                div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
-                div.setAttribute("data-isbn", book.isbn)
-                div.setAttribute("data-id", book.id)
-                div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName">${book.title}</h6><img src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
-                container.append(div)
-                div.onclick = () => {
-                    let id = div.dataset.id
-                    window.location.href = `/book/${id}`
-                }
-                enlightCandles()
+                createBookElement(container, book)
             });
         }
     });
 }
 
 
+function createBookElement(container, book) {
+    let div = document.createElement("div")
+    let lamp = theme.innerHTML == "antique" ? "lamp lampModern" : "lamp lampAntique"
+    let candles = theme.innerHTML == "antique" ? '<span class="rounded-circle candles candlesModern candleLeft">🕯️</span><div class="candlesModern lightPlate"></div><span class="rounded-circle candles candlesModern candleRight">🕯️</span>' : '<span class="rounded-circle candles candlesAntique candleLeft">🕯️</span><div class="lightPlate"></div><span class="rounded-circle candles candlesAntique candleRight">🕯️</span>'
+    div.style.color = theme.innerHTML == "modern" ? "#fada9e" : "black"
+    div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
+    div.setAttribute("data-isbn", book.isbn)
+    div.setAttribute("data-id", book.id)
+    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName">${book.title}</h6><img src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
+    container.append(div)
+    div.onclick = () => {
+        let id = div.dataset.id
+        window.location.href = `/book/${id}`
+    }
+    enlightCandles(div)
+}
+
+
+
 // enlight candles with onmouse event
-function enlightCandles() {
-    document.querySelectorAll(".bookDiv").forEach(book => {
-        book.addEventListener("mousemove", () => lightCandle(book))
-        book.addEventListener("mouseleave", () => darkCandle(book))
-        window.addEventListener("unload", () => darkCandle(book))
-    })
+function enlightCandles(book) {
+    book.addEventListener("mousemove", () => lightCandle(book))
+    book.addEventListener("mouseleave", () => darkCandle(book))
+    window.addEventListener("unload", () => darkCandle(book))
 }
 
 

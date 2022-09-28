@@ -49,6 +49,7 @@ function turnAntique() {
         document.querySelectorAll(".bookDiv").forEach(book => {
             book.className = "bookDiv bookDivAntique"
             book.style.color = "#fada9e"
+            enlightCandles(book)
         });
     }
     if (document.querySelectorAll(".lamp")) {
@@ -59,7 +60,6 @@ function turnAntique() {
     if (document.querySelector("#bookGenre")) {
         document.querySelector("#bookGenre").className = "bookGenreAntique"
     }
-    enlightCandles()
 }
 
 

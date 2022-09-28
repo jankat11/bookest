@@ -12,13 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // active candles ligting effect
-    if (theme.innerHTML == "modern") {
-        enlightCandles()
-    }
-
-
-
     // switch themes modern or antique
     theme.onclick = function () {
         if (theme.innerHTML == "antique") {
@@ -104,21 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 let container = document.querySelector("#container")
                 for (let book of result.result) {
-                    let div = document.createElement("div")
-                    let lamp = theme.innerHTML == "antique" ? "lamp lampModern" : "lamp lampAntique"
-                    let candles = theme.innerHTML == "antique" ? '<span class="rounded-circle candles candlesModern candleLeft">🕯️</span><span class="rounded-circle candles candlesModern candleRight">🕯️</span>' : '<span class="rounded-circle candles candlesAntique candleLeft">🕯️</span><span class="rounded-circle candles candlesAntique candleRight">🕯️</span>'
-                    div.style.color = theme.innerHTML == "modern" ? "#fada9e" : "black"
-                    div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
-                    div.setAttribute("data-isbn", book.isbn)
-                    div.setAttribute("data-id", book.id)
-                    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName">${book.title}</h6><img src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
-                    container.append(div)
-                    div.onclick = () => {
-                        let id = div.dataset.id
-                        window.location.href = `/book/${id}`
-                    }
+                    createBookElement(container, book)
                 }
-                enlightCandles()
             });
         }
     }

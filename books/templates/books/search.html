@@ -7,7 +7,7 @@
     {% for book in books %}
     <div data-isbn="{{book.isbn}}" data-id="{{book.id}}" class="bookDiv bookDivModern">
         <div class="lamp lampModern">
-            <span class="rounded-circle candles candlesModern candleLeft">🕯️</span><span class="rounded-circle candles candlesModern candleRight">🕯️</span>
+            <span class="rounded-circle candles candlesModern candleLeft">🕯️</span><div class="lightPlate"></div><span class="rounded-circle candles candlesModern candleRight">🕯️</span>
         </div>
         <h6 class="bookName">{{book.title}}</h6>
         <img src="{{book.image}}" width="120" alt="no image">
