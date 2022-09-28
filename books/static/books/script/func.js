@@ -63,6 +63,7 @@ function darkCandle(book) {
     book.firstElementChild.firstElementChild.style.boxShadow = "none"
     book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc700"
     book.firstElementChild.lastElementChild.style.boxShadow = "none" 
+    book.style.backgroundImage = "linear-gradient(rgb(133, 77, 5), rgb(133, 77, 5))"
 }
 
 function lightCandle(book) { 
@@ -70,4 +71,5 @@ function lightCandle(book) {
     book.firstElementChild.firstElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
     book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc783"
     book.firstElementChild.lastElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
+    book.style.backgroundImage = "linear-gradient(rgba(223, 172, 77, 0.938), rgb(133, 77, 5))"
 }
