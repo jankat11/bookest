@@ -19,7 +19,7 @@ function turnAntique() {
     theme.style.color = "black"
     profile ? profile.style.backgroundColor = "#462303" : ""
     profile ? profile.style.color = "#fada9e" : ""
-    document.querySelector("#menuItems").style.backgroundColor = "#dae1bd"
+    document.querySelector("#menuItems").style.backgroundColor = "#ffe7ac"
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-warning loginButton" : ""
     document.querySelector("#submitRegister") ? document.querySelector("#submitRegister").className = "btn btn-warning loginButton" : ""
     if (document.querySelectorAll(".reviewItem")) {
@@ -27,6 +27,7 @@ function turnAntique() {
             item.className = "reviewItem border border-warning rounded"
         })
     }
+    document.querySelector(".searchInput") ? document.querySelector(".searchInput").className = "searchInputAntique" : null
     document.querySelector(".topPıc") ? document.querySelector(".topPıc").className = "topPıcAntique" : null
     if (document.querySelector("#theShelf")) {
         document.querySelector("#theShelf").style.color = "#fada9e"
@@ -34,7 +35,7 @@ function turnAntique() {
         document.querySelector("#bottomShelf").className = "readShelfAntique"
     } 
     document.querySelector("#searchButton").className = "btn btn-warning btn-sm"
-    document.body.style.backgroundColor = "#462303"
+    document.body.style.backgroundColor = "#462303e4"
     if(document.querySelectorAll(".bookSwitch")) {
         document.querySelectorAll(".bookSwitch").forEach(text => {
             text.style.color = "#fada9e"
@@ -49,7 +50,7 @@ function turnAntique() {
     if (document.querySelectorAll(".bookDiv")) {
         document.querySelectorAll(".bookDiv").forEach(book => {
             book.className = "bookDiv bookDivAntique"
-            book.style.color = "#fada9e"
+            book.style.color = "#301f00"
             enlightCandles(book)
         });
     }
@@ -82,6 +83,7 @@ function turnModern() {
     theme.style.color = "white"
     profile ? profile.style.backgroundColor = "#02bbab31" : ""
     profile ? profile.style.color = "black" : ""
+    document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput" : null
     document.querySelector("#menuItems").style.backgroundColor = "whitesmoke"
     document.querySelector(".topPıcAntique") ? document.querySelector(".topPıcAntique").className = "topPıc" : null
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-primary loginButton" : ""

@@ -136,7 +136,7 @@
     position: absolute;
     font-size: large;
     font-weight: bold;
-    top: 110px;
+    top: 80px;
     right: 20px;
 }
 
@@ -162,7 +162,10 @@
     position: absolute;
     right: 0px;
     background-color: whitesmoke;
-    padding-top: 10px !important;
+    padding-top: 5px !important;
+    padding-left: 10px !important;
+    padding-bottom: 5px !important;
+    padding-right: 5px !important;
     z-index: 5;
 }
 
@@ -255,7 +258,7 @@
 .lampAntique {
     border-bottom: solid 1px rgba(226, 130, 21, 0.158);
     border-right: rgb(48, 0, 0) solid 1px;
-    background-image: linear-gradient(rgb(39, 21, 0), rgb(189, 114, 15), rgba(78, 44, 4, 0.747));
+    background-image: linear-gradient(#543108, #e99525, #3c2306bf);
 }
 
 .bookDivModern,
@@ -271,12 +274,13 @@
 .lightPlate {
     position: absolute;
     right: 0px;
-    top: 0px;
-    width: 250px;
+    top: -1px;
+    width: 251px;
     height: 103px;
     z-index: 5;
     display: none;
-    background-image: linear-gradient(#ddba785e, #854e0500);
+    background-image: linear-gradient(#ebd2a49f, #854e0500);
+    box-shadow: 0px -20px 20px 3px #ebd2a41e
 }
 
 .bookDivModern {
@@ -289,8 +293,9 @@
 
 .bookDivAntique {
     padding-bottom: 0px !important;
-    background-color: rgb(133, 77, 5);
+    background-color: #cb9958;
     border: solid 1px rgb(39, 21, 0);
+    color: #301f00;
 }
 
 .bookDivAntique:hover {
@@ -314,8 +319,8 @@
 }
 
 .bookGenreAntique {
-    background-color: #656d3f;
-    color: #faf49e;
+    background-color: #ffe7ac;
+    color: #5a3a00;
 }
 
 .candleRight:hover,
@@ -345,6 +350,15 @@
 #bookOverView {
     padding: 50px;
 }
+
+.searchInput {
+    background-color: white;
+}
+
+.searchInputAntique {
+    background-color: #ffe7ac;
+}
+
 
 .bookInfoItem,
 .bookInfoAuthor {
