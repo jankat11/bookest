@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica SIL:wght@400;600;700&display=swap');
 
 
 body {
@@ -69,9 +69,8 @@ body {
 }
 
 .topNavItem,
-#profile, #title,
-#subtitle, #change {
-    font-family: "Ubuntu", Book Antiqua;
+#profile, #title, #change {
+    font-family: "Abyssinica SIL", Book Antiqua;
 }
 
 .mobileNav {
@@ -93,7 +92,7 @@ body {
     position: relative;
     bottom: 19px;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .searchForm {
@@ -195,6 +194,11 @@ body {
     position: absolute;
     top: 30px;
     right: 20px;
+    border: none;
+    padding: 0px;
+    padding-left: 1px;
+    padding-right: 1px;
+    background-color: #3a3a3a8e;
 }
 
 #change:focus {
@@ -706,7 +710,7 @@ body {
         padding: 0px;
         padding-left: 1px;
         padding-right: 1px;
-        right: 5px;
+        right: 10px;
         top: 30px;
     }
 }
