@@ -2,12 +2,8 @@
     // remember theme if changed before and load it 
     if (localStorage.getItem("status")) {
         let status = localStorage.getItem("status")
-        if (status == "antique") {
-            turnAntique()
-            document.body.style.display = "block"
-        } else if (status == "modern")
-            turnModern()
-            document.body.style.display = "block"
+        status == "antique" ? turnAntique() : turnModern()
+        document.body.style.display = "block"
     } else {
         document.body.style.display = "block"
     }
