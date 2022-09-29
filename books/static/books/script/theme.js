@@ -34,7 +34,7 @@ function turnAntique() {
         document.querySelector("#topShelf").className = "readShelfAntique"
         document.querySelector("#bottomShelf").className = "readShelfAntique"
     } 
-    document.querySelector("#searchButton").className = "btn btn-warning btn-sm"
+    document.querySelector("#searchButton").className = "btn btn-warning btn-sm sbantique"
     document.body.style.backgroundColor = "#462303e4"
     if(document.querySelectorAll(".bookSwitch")) {
         document.querySelectorAll(".bookSwitch").forEach(text => {
