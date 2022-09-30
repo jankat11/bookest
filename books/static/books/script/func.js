@@ -39,7 +39,7 @@ function bestSellers(genre) {
 function createBookElement(container, book) {
     let div = document.createElement("div")
     let lamp = theme.innerHTML == "antique" ? "lamp lampModern" : "lamp lampAntique"
-    let candles = theme.innerHTML == "antique" ? '<span class="rounded-circle candles candlesModern candleLeft">🕯️</span><div class="candlesModern lightPlate"></div><span class="rounded-circle candles candlesModern candleRight">🕯️</span>' : '<span class="rounded-circle candles candlesAntique candleLeft">🕯️</span><div class="lightPlate"></div><span class="rounded-circle candles candlesAntique candleRight">🕯️</span>'
+    let candles = theme.innerHTML == "antique" ? '<span class="rounded-circle candles candlesModern candleLeft">🕯️</span><div class="candlesModern lightPlate"></div>' : '<span class="rounded-circle candles candlesAntique candleLeft">🕯️</span><div class="lightPlate"></div>'
     div.style.color = theme.innerHTML == "modern" ? "#301f00" : "black"
     div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
     div.setAttribute("data-isbn", book.isbn)
@@ -67,8 +67,7 @@ function darkCandle(book) {
     book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc700"
     book.firstElementChild.firstElementChild.style.boxShadow = "none"
     book.firstElementChild.firstElementChild.nextElementSibling.style.display = "none"
-    book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc700"
-    book.firstElementChild.lastElementChild.style.boxShadow = "none" 
+
 
 }
 
@@ -76,7 +75,6 @@ function lightCandle(book) {
     book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc783"
     book.firstElementChild.firstElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
     book.firstElementChild.firstElementChild.nextElementSibling.style.display = "block"
-    book.firstElementChild.lastElementChild.style.backgroundColor = "#f1efc783"
-    book.firstElementChild.lastElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
+
 
 }

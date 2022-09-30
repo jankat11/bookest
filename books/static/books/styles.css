@@ -218,7 +218,16 @@ body {
 }
 
 #container,
-#bestSeller,
+#bestSeller {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin:auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+
 #bookContainer {
     display: flex;
     flex-wrap: wrap;
@@ -249,7 +258,7 @@ body {
 .lamp,
 .candles {
     height: 20px;
-    width: 250px;
+    width: 150px;
     position: relative;
     bottom: 20px;
 }
@@ -273,9 +282,10 @@ body {
 .bookDivAntique {
     text-align: center;
     font-size: 20px;
-    margin: 30px;
+    word-wrap: break-word;
     margin-top: 20px;
-    width: 250px;
+    margin-bottom: 20px;
+    width: 150px;
     padding: 20px;
 }
 
@@ -283,7 +293,7 @@ body {
     position: absolute;
     right: 0px;
     top: -1px;
-    width: 251px;
+    width: 151px;
     height: 103px;
     z-index: 5;
     display: none;
@@ -303,7 +313,7 @@ body {
 .bookDivAntique {
     padding-bottom: 0px !important;
     background-color: #a57e4c;
-    border: solid 1px rgb(39, 21, 0);
+    
     color: #301f00;
 }
 
@@ -338,21 +348,16 @@ body {
     border-color: #4e4417;
 }
 
-.candleRight:hover,
 .candleLeft:hover {
     background-color: #f1efc777;
     box-shadow: 0px 0px 30px 20px #f1efc791;
 }
 
-.candleRight,
 .candleLeft {
     width: 0px;
     padding: 0px;
 }
 
-.candleRight {
-    margin-left: 160px;
-}
 
 .candlesModern {
     display: none;
@@ -654,13 +659,7 @@ margin-top: 30px !important;
 }
 
 
-@media (min-width: 1023px) {
 
-    #container,
-    #bestSeller {
-        margin-left: 15%;
-    }
-}
 
 @media (max-width: 1023px) {
     #bookGenre {
