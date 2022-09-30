@@ -44,7 +44,7 @@ function createBookElement(container, book) {
     div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
     div.setAttribute("data-isbn", book.isbn)
     div.setAttribute("data-id", book.id)
-    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName">${book.title}</h6><img src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
+    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName">${book.title}</h6><img class="bookCover" src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
     container.append(div)
     div.onclick = () => {
         let id = div.dataset.id
