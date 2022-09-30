@@ -13,35 +13,71 @@ const description = document.querySelector("#desc")
 
 
 function bestSellers(genre) {
-   return fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genre}.json?api-key=LqUHIwL9cMprnPyH5reZJcaOH0In51Am`)
+    fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genre}.json?api-key=LqUHIwL9cMprnPyH5reZJcaOH0In51Am`)
     .then(response => response.json())
     .then(result => {
         // isbn stands for 'The International Standard Book Number' a numeric commercial book identifier.
         for (let isbn of result["results"]["books"]) {
             isbn = isbn['isbns'][0]['isbn10']
+            console.log(isbn)
             parseBook(isbn)  
         }
     });
 }
 
+
+function searchBook(book) {
+    pagination = arguments[1] ? arguments[1] : pagination
+    return fetch(`https://www.googleapis.com/books/v1/volumes?q=${book}&startIndex=${pagination}&maxResults=40`)
+    .then(response => response.json())
+    .then(books => {
+        let container = document.querySelector("#container")
+        books["items"] ?
+        books["items"].forEach(book => {
+            try {
+                getBookItem(book, container)
+            } catch (err) {
+                console.log(err)
+            }
+        }) : null
+        return books
+    })
+    .then((books) => {
+        shortenTitle()
+        return books
+    })
+}
+
+
 function parseBook(isbn) {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
     .then(response => response.json())
-    .then(result => {
-        let container = document.querySelector("#bestSeller")
-        let image = result["items"] ? 
-        result["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] : null
-
-        let isbn = result["items"][0]["volumeInfo"]["industryIdentifiers"] ?
-        result["items"][0]["volumeInfo"]["industryIdentifiers"][0]["identifier"] : null
-
-        let title = result["items"][0]["volumeInfo"]["title"]
-        let authors = result["items"][0]["volumeInfo"]["authors"].toString().replace(",", ", ")
-        let id = result["items"][0]["id"]
-        let book = { "isbn": isbn, "image": image, "title": title, "authors": authors, "id": id }
-        createBookElement(container, book)
-    });
+    .then(book => {
+        getBookItem(book["items"][0])
+    })
+    .catch((err) => console.log(err))
 }
+
+
+function getBookItem(result) {
+    let isbn;
+    let container = arguments[1] ? arguments[1] : document.querySelector("#bestSeller") 
+    let image = result["volumeInfo"]["imageLinks"] ? 
+    result["volumeInfo"]["imageLinks"]["thumbnail"] : "no image"
+    if (arguments[1] ) {
+        isbn = result["volumeInfo"]["industryIdentifiers"] ?
+        result["volumeInfo"]["industryIdentifiers"][0]["identifier"] : null
+    } else {
+        isbn = result["volumeInfo"]["industryIdentifiers"][0]["identifier"] 
+    }
+    let title = result["volumeInfo"]["title"]
+    let authors = result["volumeInfo"]["authors"] ?
+    result["volumeInfo"]["authors"].toString().replace(",", ", ") : ""
+    let id = result["id"]
+    let book = { "isbn": isbn, "image": image, "title": title, "authors": authors, "id": id }
+    createBookElement(container, book)
+} 
+
 
 function createBookElement(container, book) {
     let div = document.createElement("div")

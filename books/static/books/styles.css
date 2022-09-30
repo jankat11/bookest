@@ -210,9 +210,11 @@ body {
 
 
 #moreResults {
-    margin-left: 63%;
+    text-align: center;
     text-decoration: underline;
     margin-bottom: 20px;
+    display: none;
+    width: 100%;
 }
 
 #moreResults:hover {
@@ -694,7 +696,7 @@ margin-top: 30px !important;
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 821px) {
     #profile {
         display: none;
     }
@@ -737,12 +739,6 @@ margin-top: 30px !important;
     }
 }
 
-
-@media (max-width: 1023px) {
-    #moreResults {
-        margin-left: 30%;
-    }
-}
 
 @media (max-width: 400px) {
     #change {
