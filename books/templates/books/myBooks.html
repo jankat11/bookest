@@ -14,22 +14,22 @@
     <div class="messages"><br></div>
     {% endif %}
 
-    <h3>Will be read</h3>
+    <h3 class="readShelf readShelfTop">Will be read</h3>
     <div id="topShelf" class="readShelfModern">
     {% for book_w in will_be_read %}
         <img id="{{book_w}}" class="bookOnTheShelf" src="http://books.google.com/books/content?id={{book_w}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" width="50" alt="no image">
     {% empty %}
-        <span id="emptyShelf">This bookshelf is empty</span>
+        <span class="emptyShelf">This bookshelf is empty</span>
     {% endfor %}
     </div>
 
     
-    <h3 id="readShelf">Has been read</h3>
+    <h3 class="readShelf readShelfBottom">Has been read</h3>
     <div id="bottomShelf" class="readShelfModern">
     {% for book_h in has_been_read %}
         <img id="{{book_h}}" class="bookOnTheShelf" src="http://books.google.com/books/content?id={{book_h}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" width="50" alt="no image">
     {% empty %}
-        <span id="emptyShelf">This bookshelf is empty</span>
+        <span class="emptyShelf">This bookshelf is empty</span>
     {% endfor %}
     </div>
 </div>

@@ -436,14 +436,23 @@ body {
 
 }
 
-#emptyShelf {
+.emptyShelf {
     margin: 20px;
     font-style: italic;
     font-weight: 400;
 }
 
-#readShelf {
+.readShelfTop {
     margin-top: 40px;
+}
+
+.readShelfBottom {
+margin-top: 30px !important;
+}
+
+.readShelf, .emptyShelf, .readShelfModern, .readShelfAntique {
+    width: 900px;
+    margin: auto;
 }
 
 .bookOnTheShelf {
@@ -459,14 +468,12 @@ body {
 .readShelfModern {
     background-image: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("/static/books/images/shelfModern.png");
     background-repeat: repeat;
-    width: 70%;
     min-height: 100px;
 }
 
 .readShelfAntique {
     background-image: url("/static/books/images/shelfAntique.png");
     background-repeat: repeat;
-    width: 70%;
     min-height: 100px;
 }
 
@@ -617,7 +624,8 @@ body {
 @media (max-width: 1023px) {
 
     .readShelfModern,
-    .readShelfAntique {
+    .readShelfAntique,
+    .readShelf, .emptyShelf {
         width: 100%;
     }
 }
