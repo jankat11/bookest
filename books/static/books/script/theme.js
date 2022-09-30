@@ -28,6 +28,7 @@ function turnAntique() {
             item.className = "reviewItem border border-warning rounded"
         })
     }
+
     document.querySelector(".searchInput") ? document.querySelector(".searchInput").className = "searchInputAntique" : null
     document.querySelector(".topPıc") ? document.querySelector(".topPıc").className = "topPıcAntique" : null
     if (document.querySelector("#theShelf")) {

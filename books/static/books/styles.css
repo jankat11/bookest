@@ -3,6 +3,7 @@
 
 body {
     display: none;
+    -bottom: 30px;
 }
 
 .topPıc {
@@ -69,8 +70,9 @@ body {
 }
 
 .topNavItem,
-#profile, #title, #change {
-    font-family: "Abyssinica SIL", Book Antiqua;
+#profile, #title, #change, .author, .bookName,
+#indexHeader, #searchHeader, .bookGenre {
+    font-family: "Abyssinica SIL", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .mobileNav {
@@ -223,8 +225,9 @@ body {
     flex-wrap: wrap;
     width: 100%;
     margin:auto;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-bottom: 30px;
 }
 
 
@@ -252,7 +255,10 @@ body {
 
 
 .author {
-    margin-top: 15px;
+    margin-top: 5px;
+    font-size: small;
+    position: relative;
+    bottom: 5px;
 }
 
 .lamp,
@@ -284,26 +290,31 @@ body {
     font-size: 20px;
     word-wrap: break-word;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 150px;
     padding: 10px;
+    padding-bottom: 0px;
    
 }
-
-
 
 .bookName {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 60px;
-    position: relative;
-    bottom: 7px;
+ 
+    word-wrap: break-word !important;
+    font-weight: bold;
+}
+
+.titleWrapp {
+    width: 100%;
+    word-wrap: break-word;
 }
 
 .bookCover {
     position: relative;
-    bottom: 10px;
+    bottom: 5px;
 }
 
 
@@ -686,6 +697,12 @@ margin-top: 30px !important;
 @media (max-width: 700px) {
     #profile {
         display: none;
+    }
+    #container,
+    #bestSeller {
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: center;
     }
 }
 

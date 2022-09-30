@@ -2,7 +2,7 @@
     // remember theme if changed before and load it 
     if (localStorage.getItem("status")) {
         let status = localStorage.getItem("status")
-        status == "antique" ? turnAntique() : turnModern()
+        status == "antique" ? turnAntique() : null
         document.body.style.display = "block"
     } else {
         document.body.style.display = "block"
@@ -25,20 +25,15 @@
     }
 
 
-    // redirect book page clicking on book
-    document.querySelectorAll(".bookDiv").forEach(book => {
-        book.onclick = () => {
-            let id = book.dataset.id
-            window.location.href = `/book/${id}`
-        }
-    });
 
-
+    
+    
     // load fiction genre as default
     if (document.querySelector("#indexHeader")) {
         bestSellers("hardcover-fiction")
         bestSellers("trade-fiction-paperback")
     }
+
 
 
     // select genre from select menu to load index
@@ -56,6 +51,8 @@
         }
     }
 
+    // shorten book title on home page
+    shortenTitle()
 
     // fix nav-bar when scrolling
     window.addEventListener('scroll', function () {
@@ -96,10 +93,15 @@
                 let container = document.querySelector("#container")
                 for (let book of result.result) {
                     createBookElement(container, book)
+                    shortenTitle()
                 }
             });
         }
     }
 
+    
 
+    
 
+    
+    

@@ -13,28 +13,35 @@ const description = document.querySelector("#desc")
 
 
 function bestSellers(genre) {
-    fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genre}.json?api-key=LqUHIwL9cMprnPyH5reZJcaOH0In51Am`)
+   return fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genre}.json?api-key=LqUHIwL9cMprnPyH5reZJcaOH0In51Am`)
     .then(response => response.json())
     .then(result => {
         // isbn stands for 'The International Standard Book Number' a numeric commercial book identifier.
         for (let isbn of result["results"]["books"]) {
             isbn = isbn['isbns'][0]['isbn10']
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
-            .then(response => response.json())
-            .then(result => {
-                let container = document.querySelector("#bestSeller")
-                let image = result["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
-                let isbn = result["items"][0]["volumeInfo"]["industryIdentifiers"][0]["identifier"]
-                let title = result["items"][0]["volumeInfo"]["title"]
-                let authors = result["items"][0]["volumeInfo"]["authors"].toString().replace(",", ", ")
-                let id = result["items"][0]["id"]
-                let book = { "isbn": isbn, "image": image, "title": title, "authors": authors, "id": id }
-                createBookElement(container, book)
-            });
+            parseBook(isbn)  
         }
     });
 }
 
+function parseBook(isbn) {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+    .then(response => response.json())
+    .then(result => {
+        let container = document.querySelector("#bestSeller")
+        let image = result["items"] ? 
+        result["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"] : null
+
+        let isbn = result["items"][0]["volumeInfo"]["industryIdentifiers"] ?
+        result["items"][0]["volumeInfo"]["industryIdentifiers"][0]["identifier"] : null
+
+        let title = result["items"][0]["volumeInfo"]["title"]
+        let authors = result["items"][0]["volumeInfo"]["authors"].toString().replace(",", ", ")
+        let id = result["items"][0]["id"]
+        let book = { "isbn": isbn, "image": image, "title": title, "authors": authors, "id": id }
+        createBookElement(container, book)
+    });
+}
 
 function createBookElement(container, book) {
     let div = document.createElement("div")
@@ -44,7 +51,7 @@ function createBookElement(container, book) {
     div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
     div.setAttribute("data-isbn", book.isbn)
     div.setAttribute("data-id", book.id)
-    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName">${book.title}</h6><img class="bookCover" src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
+    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName"><span class="titleWrapp">${book.title}</span></h6><img class="bookCover" src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
     container.append(div)
     div.onclick = () => {
         let id = div.dataset.id
@@ -53,6 +60,24 @@ function createBookElement(container, book) {
     enlightCandles(div)
 }
 
+
+function shortenTitle() {
+    document.querySelectorAll(".titleWrapp").forEach(title => {
+        if (title.innerHTML.length > 36)
+        title.innerHTML = title.innerHTML.slice(0, 35) + "..."
+    })
+    document.querySelectorAll(".author").forEach(author => {
+        if (author.innerHTML.length > 51)
+        author.innerHTML = author.innerHTML.slice(0, 50) + "..."
+    })
+}
+
+
+function addMarginLastBook() {
+    document.querySelectorAll(".bookDiv").forEach(function(book, index) {
+        console.log(`${index}`,this.length)
+    })
+}
 
 
 // enlight candles with onmouse event
