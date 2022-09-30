@@ -4,7 +4,7 @@ import requests
 PAGINATION = 40
 
 
-def search_book(book, start_index=0):
+""" def search_book(book, start_index=0):
     book = book.replace(" ", "+")
     url = f"https://www.googleapis.com/books/v1/volumes?q={book}&startIndex={start_index}&maxResults={PAGINATION}"
     response = requests.get(url)
@@ -24,18 +24,30 @@ def search_book(book, start_index=0):
                 continue
     except(KeyError):
         return ""
-    return books
+    return books """
 
 
 def get_book(id):
     url = f"https://www.googleapis.com/books/v1/volumes/{id}"
     response = requests.get(url).json()
-    isbn = response["volumeInfo"]["industryIdentifiers"][0]["identifier"]
-    google_books = response["volumeInfo"]["previewLink"]
-    image = response["volumeInfo"]["imageLinks"]["thumbnail"]
-    author = ", ".join(response["volumeInfo"]["authors"])
     title = response["volumeInfo"]["title"]
     google_id = response["id"]
+    try:
+        author = ", ".join(response["volumeInfo"]["authors"])
+    except:
+        author = "no author info"
+    try:
+        google_books = response["volumeInfo"]["previewLink"]
+    except:
+        google_books = ""
+    try:
+        isbn = response["volumeInfo"]["industryIdentifiers"][0]["identifier"]
+    except:
+        isbn = ""
+    try:
+        image = response["volumeInfo"]["imageLinks"]["thumbnail"]
+    except:
+        image = ""
     try:
         description = response["volumeInfo"]["description"]
     except:

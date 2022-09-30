@@ -1,4 +1,4 @@
-from urllib import request
+
 from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django import forms
 
-from .util import search_book, get_book
+from .util import get_book
 from .models import User, Book, BookShelf, Review
 # Create your views here.
 
@@ -54,28 +54,21 @@ def index(request):
 
 
 def search(request, book_info):
-    try:
-        books = search_book(book_info)
-    except:
-        return render(request, "books/index.html", {
-            "message" : "No result",
-            "form": SearchForm()
-        })
+
     return render(request, "books/search.html", {
         "form": SearchForm(),
         "bookInfo": book_info,
-        "books" : books,
         "message" : "Results:",
-        "load" : "see more results" if books else ""
+        "load" : "see more results"
     })
         
 
 def more_results(request, result):
     book_info = result.split("loadsMore")[0]
     result_count = result.split("loadsMore")[1]
-    result = search_book(book_info, result_count)
+    # result = search_book(book_info, result_count)
     return JsonResponse({
-        "result": result
+        "result": "result"
     })
 
 
