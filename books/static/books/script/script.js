@@ -75,7 +75,7 @@
         text = description.textContent
         description.innerHTML = text
     }
-
+    
 
     // to load more results after page ends if clicked 
     window.onclick = event => {
