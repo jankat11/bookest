@@ -320,13 +320,13 @@ body {
 .lightPlate {
     position: absolute;
     right: 0px;
-    top: -1px;
+    top: 100px;
     width: 150px;
-    height: 103px;
+    height: 100px;
     z-index: 5;
     display: none;
-    background-image: linear-gradient(#efd29b24, #854e0500);
-    box-shadow: 0px -20px 20px 3px #efd29b24;
+    background-image: linear-gradient(#efd29b00, #854e0500);
+    box-shadow: 0px -120px 20px 3px #efd29b24;
     border-radius: 50px 50px 50px 50px;
 }
 
