@@ -13,15 +13,20 @@ const description = document.querySelector("#desc")
 
 
 function bestSellers(genre) {
+    document.querySelector("#spinnerIndex").style.display = "inline-block"
     fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${genre}.json?api-key=LqUHIwL9cMprnPyH5reZJcaOH0In51Am`)
     .then(response => response.json())
     .then(result => {
         // isbn stands for 'The International Standard Book Number' a numeric commercial book identifier.
+        let  promises = []
         for (let isbn of result["results"]["books"]) {
             isbn = isbn['isbns'][0]['isbn10']
             console.log(isbn)
-            parseBook(isbn)  
+            promises.push(parseBook(isbn))  
         }
+        Promise.all(promises).then(() => {
+            document.querySelector("#spinnerIndex").style.display = "none"
+        })
     });
 }
 
@@ -50,7 +55,7 @@ function searchBook(book) {
 
 
 function parseBook(isbn) {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+    return fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
     .then(response => response.json())
     .then(book => {
         getBookItem(book["items"][0])

@@ -442,6 +442,11 @@ body {
     text-align: center;
 }
 
+#spinnerIndex {
+margin-left: 20px;
+}
+
+
 #description {
     margin-top: 10px;
     margin-bottom: 40px;

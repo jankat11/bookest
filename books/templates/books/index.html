@@ -1,12 +1,14 @@
 {% extends "books/layout.html" %}
+{% load static %}
 
 {% block body %}
 <h2 id="indexHeader">best seller:</h2>
-<select name="bookGenre" id="bookGenre" class="form-select" aria-label="Default select example">
+<select name="bookGenre" id="bookGenre" class="form-select shadow-none" aria-label="Default select example">
     <option  value="fiction">fiction</option>
     <option  value="nonfiction">non-fiction</option>
 </select>
-
-<div id="bestSeller">
+<img id="spinnerIndex" src="{% static 'books/images/spinner.gif' %}" alt="asd" width="30" height="30">
+<!-- <div style="position: absolute; top: 300; width: 100%;"><img id="spinnerIndex" src="{% static 'books/images/spinner.gif' %}" alt="asd" width="40" height="40"></div> -->
+<div id="bestSeller">  
 </div>
 {% endblock %}
