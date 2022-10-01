@@ -89,14 +89,7 @@ window.onclick = event => {
     }
 }
 
-document.querySelector("#searchForm").onsubmit = () => {
-    
-        let thebook = document.querySelector("#searchHeader").dataset.bookinfo
-        console.log(thebook)
-        pagination = 0
-        searchBook(thebook)
 
-}
 
 
 

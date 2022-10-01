@@ -52,7 +52,7 @@ function turnAntique() {
     if (document.querySelectorAll(".bookDiv")) {
         document.querySelectorAll(".bookDiv").forEach(book => {
             book.className = "bookDiv bookDivAntique"
-            book.style.color = "#301f00"
+            book.style.color = "#cea458"
             enlightCandles(book)
         });
     }

@@ -230,6 +230,7 @@ body {
     padding-right: 40px;
     padding-left: 40px;
     margin-bottom: 30px;
+    margin-top: 15px;
 }
 
 
@@ -291,12 +292,9 @@ body {
     text-align: center;
     font-size: 20px;
     word-wrap: break-word;
-    margin-top: 20px;
-    margin-bottom: 10px;
     width: 150px;
     padding: 10px;
     padding-bottom: 0px;
-   
 }
 
 .bookName {
@@ -304,7 +302,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 60px;
- 
     word-wrap: break-word !important;
     font-weight: bold;
 }
@@ -328,9 +325,9 @@ body {
     height: 103px;
     z-index: 5;
     display: none;
-    background-image: linear-gradient(#ecc2728f, #854e0500);
-    box-shadow: 0px -20px 20px 3px #ebd2a411;
-    border-radius: 0 0 25px 25px;
+    background-image: linear-gradient(#efd29b24, #854e0500);
+    box-shadow: 0px -20px 20px 3px #efd29b24;
+    border-radius: 50px 50px 50px 50px;
 }
 
 .bookDivModern {
@@ -343,14 +340,14 @@ body {
 
 .bookDivAntique {
     padding-bottom: 0px !important;
-    background-color: #a57e4c;
-    
-    color: #301f00;
+    background-color: #321b08;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #cea458;
 }
 
 .bookDivAntique:hover {
-    
-    border: solid 1px rgb(39, 21, 0);
+    z-index: 2;
 }
 
 #bookGenre {

@@ -83,7 +83,6 @@ function createBookElement(container, book) {
     let div = document.createElement("div")
     let lamp = theme.innerHTML == "antique" ? "lamp lampModern" : "lamp lampAntique"
     let candles = theme.innerHTML == "antique" ? '<span class="rounded-circle candles candlesModern candleLeft">🕯️</span><div class="candlesModern lightPlate"></div>' : '<span class="rounded-circle candles candlesAntique candleLeft">🕯️</span><div class="lightPlate"></div>'
-    div.style.color = theme.innerHTML == "modern" ? "#301f00" : "black"
     div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
     div.setAttribute("data-isbn", book.isbn)
     div.setAttribute("data-id", book.id)
