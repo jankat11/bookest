@@ -63,7 +63,7 @@ function getBookItem(result) {
     let isbn;
     let container = arguments[1] ? arguments[1] : document.querySelector("#bestSeller") 
     let image = result["volumeInfo"]["imageLinks"] ? 
-    result["volumeInfo"]["imageLinks"]["thumbnail"] : "no image"
+    result["volumeInfo"]["imageLinks"]["thumbnail"] : ""
     if (arguments[1] ) {
         isbn = result["volumeInfo"]["industryIdentifiers"] ?
         result["volumeInfo"]["industryIdentifiers"][0]["identifier"] : null
@@ -81,13 +81,15 @@ function getBookItem(result) {
 
 function createBookElement(container, book) {
     let div = document.createElement("div")
+    div.style.display = "none"
     let lamp = theme.innerHTML == "antique" ? "lamp lampModern" : "lamp lampAntique"
     let candles = theme.innerHTML == "antique" ? '<span class="rounded-circle candles candlesModern candleLeft">🕯️</span><div class="candlesModern lightPlate"></div>' : '<span class="rounded-circle candles candlesAntique candleLeft">🕯️</span><div class="lightPlate"></div>'
     div.className = theme.innerHTML == "antique" ? "bookDiv bookDivModern" : "bookDiv bookDivAntique"
     div.setAttribute("data-isbn", book.isbn)
     div.setAttribute("data-id", book.id)
-    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName"><span class="titleWrapp">${book.title}</span></h6><img class="bookCover" src="${book.image}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
+    div.innerHTML = `<div class="${lamp}">${candles}</div><h6 class="bookName"><span class="titleWrapp">${book.title}</span></h6><img class="bookCover" src="${book.image ? book.image : '/static/books/images/noimage.png'}" width="120" alt="no image"><h6 class="author">${book.authors}</h6>`
     container.append(div)
+    div.style.display = "block"
     div.onclick = () => {
         let id = div.dataset.id
         window.location.href = `/book/${id}`
@@ -127,14 +129,10 @@ function darkCandle(book) {
     book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc700"
     book.firstElementChild.firstElementChild.style.boxShadow = "none"
     book.firstElementChild.firstElementChild.nextElementSibling.style.display = "none"
-
-
 }
 
 function lightCandle(book) { 
     book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc783"
     book.firstElementChild.firstElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
     book.firstElementChild.firstElementChild.nextElementSibling.style.display = "block"
-
-
 }

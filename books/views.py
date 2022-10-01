@@ -119,8 +119,8 @@ def my_reviews(request):
 def my_books(request):
     try:
         book_shelf = BookShelf.objects.get(owner=request.user)
-        will_be_read = [book.google_id for book in book_shelf.will_be_read.all()]
-        has_been_read = [book.google_id for book in book_shelf.has_been_read.all()]
+        will_be_read = [{"id": book.google_id, "cover": book.no_cover} for book in book_shelf.will_be_read.all()]
+        has_been_read = [{"id": book.google_id, "cover": book.no_cover} for book in book_shelf.has_been_read.all()]
         return render(request, "books/myBooks.html", {
             "form": SearchForm(),
             "has_been_read": has_been_read,
@@ -140,12 +140,14 @@ def add_my_books(request, ids):
         google_id = ids.split("---")[0]
         isbn = ids.split("---")[1]
         title = ids.split("---")[2]
+        cover_status = request.POST["no_cover"] == "no cover"
         if Book.objects.filter(google_id=google_id).all().count() == 0:
-            Book.objects.create(google_id=google_id, isbn=isbn, title=title)
+            Book.objects.create(google_id=google_id, isbn=isbn, title=title, no_cover=cover_status)
         if BookShelf.objects.filter(owner=request.user).all().count() == 0:
             BookShelf.objects.create(owner=request.user)
         book = Book.objects.get(google_id=google_id)
         book_shelf = BookShelf.objects.get(owner=request.user)
+        print(cover_status)
         if request.POST["checkbox"] == "will_be_read":
             try:
                 check = book_shelf.will_be_read.get(id=book.id)

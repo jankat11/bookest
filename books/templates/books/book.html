@@ -13,7 +13,7 @@
 <h2 class="bookSwitch" id="bookTitle">{{book.title}}</h2>
 <div class="bookSwitch" id="bookContainer">
     <div class="bookTopInfo" > 
-    <div><img src="{{book.image}}" width="150" alt=""></div>
+    <div><img src="{% if book.image %}{{book.image}}{% else %}/static/books/images/noimage.png{% endif %}" width="150" alt=""></div>
     <div id="bookOverView">
         
         {% if book.author%}
@@ -52,6 +52,7 @@
                     <input name="checkbox" class="checkbox form-check-input" type="checkbox" value="has_been_read" id="has_been_read">
                     <label class="form-check-label" for="has_been_read">has been read</label>
                 </div>
+                <input name="no_cover" value="{% if book.image %}cover exist{% else %}no cover{% endif %}" type="hidden">
          
             <input id="addBookShelfButton"  class="btn btn-success btn-sm" type="submit" value="Add">
             <span id="addspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>

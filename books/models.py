@@ -13,6 +13,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     isbn = models.CharField(max_length=13)
     google_id = models.CharField(max_length=20)
+    no_cover = models.BooleanField(False)
 
     def __str__(self) -> str:
         return self.title
