@@ -3,9 +3,9 @@
 
 {% block body %}
 <h2 data-bookInfo="{{bookInfo}}" id="searchHeader">{{ message }}</h2>
+<img id="spinnerIndex" src="{% static 'books/images/spinner.gif' %}" alt="asd" width="30" height="30">
 <div id="container">
 </div>
 <h5 data-bookInfo="{{bookInfo}}" id="moreResults">{{ load }}</h5>
-
 <script src="{% static 'books/script/search.js' %}"></script>
 {% endblock %}

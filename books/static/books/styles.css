@@ -251,7 +251,8 @@ body {
     margin-left: 10px;
 }
 
-#indexHeader {
+
+#indexHeader, #searchHeader {
     display: inline-block;
 }
 

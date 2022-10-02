@@ -78,14 +78,10 @@ if (description) {
 window.onclick = event => {
     console.log(event.target)
     if (event.target.id == "moreResults") {
-        event.target.style.display = "none"
+        event.target.innerHTML = '<img id="spinnerIndex" src="/static/books/images/spinner.gif" alt="asd" width="30" height="30">'
         pagination += adding + 1
         let bookInfo = event.target.dataset.bookinfo
         searchBook(bookInfo)
-        .then((result) => {
-            console.log(result)
-            result["items"] ? document.querySelector("#moreResults").style.display = "block" : null
-        })
     }
 }
 

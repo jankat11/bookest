@@ -49,6 +49,9 @@ function searchBook(book) {
     })
     .then((books) => {
         shortenTitle()
+        !books["items"] ? document.querySelector("#moreResults").innerHTML = "no result" : 
+        document.querySelector("#moreResults").innerHTML = "see more results"
+        document.querySelector("#moreResults").style.display = "block"
         return books
     })
 }
