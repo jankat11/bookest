@@ -125,7 +125,7 @@ function addMarginLastBook() {
 // enlight candles with onmouse event
 function enlightCandles(book) {
     book.addEventListener("mousemove", () => lightCandle(book))
-    book.addEventListener("mouseleave", () => darkCandle(book))
+   
     window.addEventListener("unload", () => darkCandle(book))
 }
 
