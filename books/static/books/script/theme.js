@@ -29,7 +29,8 @@ function turnAntique() {
             item.className = "reviewItem border border-warning rounded"
         })
     }
-
+    $(".topNavItem").addClass("topNavItemA")
+    $(".topNavItemA").removeClass("topNavItem")
     document.querySelector(".searchInput") ? document.querySelector(".searchInput").className = "searchInputAntique" : null
     document.querySelector(".topPıc") ? document.querySelector(".topPıc").className = "topPıcAntique" : null
     if (document.querySelector("#theShelf")) {
@@ -87,6 +88,8 @@ function turnModern() {
     theme.style.color = "white"
     profile ? profile.style.backgroundColor = "#02bbab31" : ""
     profile ? profile.style.color = "black" : ""
+    $(".topNavItemA").addClass("topNavItem")
+    $(".topNavItem").removeClass("topNavItemA")
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput" : null
     document.querySelector("#menuItems").style.backgroundColor = "whitesmoke"

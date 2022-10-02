@@ -69,7 +69,7 @@ body {
     color: #3c361c;
 }
 
-.topNavItem,
+.topNavItem, .topNavItemA,
 #profile, #title, #change, .author, .bookName,
 #indexHeader, #searchHeader, .bookGenre {
     font-family: "Abyssinica SIL", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -121,17 +121,27 @@ body {
     margin-right: 10px;
 }
 
-.topNavItem {
-    font-size: x-large;
+.topNavItem, .topNavItemA {
+    font-size: larger;
     font-weight: bolder;
 }
 
 .topNavItem {
     padding: 11px;
+    color: black;
+}
+
+.topNavItemA {
+    padding: 11px;
+    color: #f6d981;
 }
 
 .topNavItem:hover {
-    background-color: rgba(152, 191, 248, 0.589);
+    background-color: rgba(170, 190, 219, 0.404);
+}
+
+.topNavItemA:hover {
+    background-color: rgba(236, 245, 153, 0.288);
 }
 
 #profile {

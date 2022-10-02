@@ -80,7 +80,8 @@ def book(request, id):
 
     try:
         book = Book.objects.get(google_id=id)
-        reviews = [book.serialize() for book in book.reviews.all()]
+        
+        reviews = sorted([book.serialize() for book in book.reviews.all()], key=lambda review: review["time"], reverse=True)
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
             check_has_read = book_shelf.has_been_read.get(id=book.id)
@@ -109,7 +110,7 @@ def book(request, id):
 @login_required
 def my_reviews(request):
     user = request.user
-    reviews = user.reviews.all()
+    reviews = sorted(user.reviews.all(), key=lambda review: review.time, reverse=True)
     return render(request, "books/myReviews.html", {
         "form": SearchForm(),
         "reviews": reviews

@@ -143,5 +143,5 @@ function darkCandle(candle) {
 function lightCandle(candle) { 
     candle.style.backgroundColor = "#f1efc783"
     candle.style.boxShadow = "0px 0px 30px 20px #f1efc791"
-    $(candle).next().fadeIn(150)
+    $(candle).next().fadeIn(95)
 }
