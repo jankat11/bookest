@@ -57,7 +57,7 @@ window.addEventListener('scroll', function () {
     const section = document.querySelector("#blockBody")
     if (window.scrollY > 110) {
         topBar.classList.add('fixed-top');
-        section.style.marginTop = "50px"
+        section.style.marginTop = "45px"
         menuItems.style.marginTop = window.scrollY - 65;
     } else {
         document.querySelector("#blockBody").style.marginTop = "0px"
