@@ -5,7 +5,7 @@
 {% if messages %}
 <div class="addedSuccesful">
 {% for message in messages %}
-<h5{% if message.tags %} class="{{ message.tags }} addedSuccesful"{% endif %}>{{ message }}</h5><br>
+<h5{% if message.tags %} class="{{ message.tags }} bookSwitch addedSuccesful"{% endif %}>{{ message }}</h5><br>
 {% endfor %}
 </div>
 {% endif %}
@@ -91,11 +91,11 @@
     <div class="reviewSection">
         {% for review in reviews %}
         <div class="reviewItem border border-secondary rounded"> 
-            <div class="reviewUsername">{{review.owner.username}}'s review:</div> 
+            <div class="reviewUsername">{{review.owner}}'s review:</div> 
             <div class="timeStamp">{{review.time}}</div>   
             <div class="reviewContent lead">{{review.content}}</div> 
-            {% if user.is_authenticated and review.owner.username == user.username %}
-            <div class="deleteReview"><button id="{{review.id}}" class="delete btn btn-danger btn-sm">delete</button></div>
+            {% if user.is_authenticated and review.owner == user.username %}
+            <div class="deleteReview"><button id="{{review.id}}" class="delete btn btn-outline-danger btn-sm">delete</button></div>
             {% endif %}
 
         </div>     

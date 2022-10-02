@@ -555,6 +555,7 @@ margin-top: 30px !important;
     font-style: italic;
     padding-top: 2px;
     padding-right: 5px;
+    padding-left: 10px;
     float: right;
     display: block;
 }
@@ -745,6 +746,12 @@ margin-top: 30px !important;
 @media (max-width: 1023px) {
     #title {
         font-size: 35px;
+    }
+}
+
+@media (max-width: 700px) {
+    .timeStamp {
+        float: none;
     }
 }
 

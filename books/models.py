@@ -27,10 +27,11 @@ class Review(models.Model):
 
     def serialize(self):
         return {
+            "id": self.id,
             "content": self.content,
             "owner": self.owner.username,
             "on_book": self.on_book.google_id,
-            "time": self.time.strftime("%b %d %Y, %I:%M %p") 
+            "time": self.time.strftime("%b %d %Y, %H:%M") 
         }
 
 

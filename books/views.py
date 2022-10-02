@@ -80,7 +80,7 @@ def book(request, id):
 
     try:
         book = Book.objects.get(google_id=id)
-        reviews = book.reviews.all()
+        reviews = [book.serialize() for book in book.reviews.all()]
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
             check_has_read = book_shelf.has_been_read.get(id=book.id)

@@ -88,4 +88,3 @@ if(document.querySelector("#removeBookShelfButton")) {
     }
 }
 
-
