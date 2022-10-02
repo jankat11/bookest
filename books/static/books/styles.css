@@ -495,7 +495,8 @@ body {
 margin-top: 30px !important;
 }
 
-.readShelf, .emptyShelf, .readShelfModern, .readShelfAntique {
+.readShelf, .emptyShelf, .readShelfModern,
+ .readShelfAntique, .messages {
     width: 900px;
     margin: auto;
 }
@@ -627,10 +628,12 @@ margin-top: 30px !important;
 }
 
 
-.addedSuccesful {
-    margin-left: 20px;
+.addedSuccesful .addedSuccesful {
+    margin-left: 10%;
     margin-top: 20px;
 }
+
+
 
 #myRevHeader {
     margin-top: 20px;
@@ -671,7 +674,8 @@ margin-top: 30px !important;
 
     .readShelfModern,
     .readShelfAntique,
-    .readShelf, .emptyShelf {
+    .readShelf, .emptyShelf,
+    .messages {
         width: 100%;
     }
 }

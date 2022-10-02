@@ -1,5 +1,5 @@
 {% extends 'books/layout.html' %}
-
+{% load static %}
 
 {% block body %}
 
@@ -7,11 +7,11 @@
     {% if messages %}
         <div class="messages">
         {% for message in messages %}
-          <h5{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h5><br>
+          <h6{% if message.tags %} class="{{ message.tags }} messages"{% endif %}>{{ message }}</h6><br>
         {% endfor %}
         </div>
     {% else %}
-    <div class="messages"><br></div>
+    <br>
     {% endif %}
     
     <h3 class="readShelf readShelfTop">Will be read</h3>
@@ -33,11 +33,5 @@
     {% endfor %}
     </div>
 </div>
-<script>
-    document.querySelectorAll(".bookOnTheShelf").forEach(book => {
-        book.onclick = () => {
-            window.location.href = `/book/${book.id}`
-        }
-    });
-</script>
+<script src="{% static 'books/script/mybooks.js' %}"></script>
 {% endblock %}

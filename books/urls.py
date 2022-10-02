@@ -14,5 +14,5 @@ urlpatterns = [
     path("add_my_books/<str:ids>", views.add_my_books, name="add_my_books"),
     path("search/<str:book_info>", views.search, name="search"),
     path("remove_from_bookshelf/<str:book_id>", views.remove_from_bookshelf, name="remove"),
-    path("more_results/<str:result>", views.more_results, name="more_results"),
+    #path("more_results/<str:result>", views.more_results, name="more_results"),
 ]

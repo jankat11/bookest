@@ -5,7 +5,7 @@
 {% if messages %}
 <div class="addedSuccesful">
 {% for message in messages %}
-<h5{% if message.tags %} class="{{ message.tags }} bookSwitch addedSuccesful"{% endif %}>{{ message }}</h5><br>
+<h6{% if message.tags %} class="{{ message.tags }} bookSwitch addedSuccesful"{% endif %}>{{ message }}</h6>
 {% endfor %}
 </div>
 {% endif %}

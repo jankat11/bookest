@@ -63,13 +63,13 @@ def search(request, book_info):
     })
         
 
-def more_results(request, result):
+""" def more_results(request, result):
     book_info = result.split("loadsMore")[0]
     result_count = result.split("loadsMore")[1]
     # result = search_book(book_info, result_count)
     return JsonResponse({
         "result": "result"
-    })
+    }) """
 
 
 def book(request, id):
@@ -152,7 +152,7 @@ def add_my_books(request, ids):
             try:
                 check = book_shelf.will_be_read.get(id=book.id)
                 if check is not None:
-                    messages.info(request, "❗ the book already exist in 'will be read' shelf")
+                    messages.info(request, "This book already exist in 'will be read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
@@ -169,7 +169,7 @@ def add_my_books(request, ids):
             try:
                 check = book_shelf.has_been_read.get(id=book.id)
                 if check is not None:
-                    messages.info(request, "❗ the book already exist in 'has been read' shelf")
+                    messages.info(request, "This book already exist in 'has been read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
@@ -182,7 +182,7 @@ def add_my_books(request, ids):
                 pass
             book_shelf.has_been_read.add(book)
             book_shelf.save()
-    messages.info(request, "✔️ Successfully added to bookshelf")
+    messages.info(request, "Successfully added to bookshelf")
     return HttpResponseRedirect(reverse("my_books"))
 
 
@@ -198,7 +198,7 @@ def get_review(request, ids):
         user = request.user
         content = request.POST["review"].replace("\n", "<br>")
         Review.objects.create(owner=user, on_book=book, content=content)
-        messages.info(request, "✔️ your review successfully added")
+        messages.info(request,  "your review successfully added")
         return HttpResponseRedirect(f"/book/{google_id}")
 
 
