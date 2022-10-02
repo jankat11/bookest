@@ -152,7 +152,7 @@ def add_my_books(request, ids):
             try:
                 check = book_shelf.will_be_read.get(id=book.id)
                 if check is not None:
-                    messages.info(request, "This book already exist in 'will be read' shelf")
+                    messages.info(request, "This book already in 'will be read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
@@ -169,7 +169,7 @@ def add_my_books(request, ids):
             try:
                 check = book_shelf.has_been_read.get(id=book.id)
                 if check is not None:
-                    messages.info(request, "This book already exist in 'has been read' shelf")
+                    messages.info(request, "This book already in 'has been read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
