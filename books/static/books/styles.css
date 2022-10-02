@@ -329,7 +329,7 @@ body {
     z-index: 5;
     display: none;
     background-image: linear-gradient(#efd29b00, #854e0500);
-    box-shadow: 0px -167px 20px 3px #ffffff12;
+    box-shadow: 0px -167px 20px 3px #ffffff0c;
     border-radius: 75px 75px 75px 75px;
 }
 
@@ -380,8 +380,8 @@ body {
 }
 
 .candleLeft:hover {
-    background-color: #f1efc777;
-    box-shadow: 0px 0px 30px 20px #f1efc791;
+    background-color: rgb(241 239 199 / 48%);
+    box-shadow: rgb(241 239 199 / 57%) 0px 0px 37px 18px;
 }
 
 .candleLeft {
