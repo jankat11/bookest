@@ -127,20 +127,21 @@ function addMarginLastBook() {
 
 // enlight candles with onmouse event
 function enlightCandles(book) {
-    book.addEventListener("mousemove", () => lightCandle(book))
-    book.addEventListener("mouseleave", () => darkCandle(book))
-    window.addEventListener("unload", () => darkCandle(book))
+    const candle = book.firstElementChild.firstElementChild
+    book.addEventListener("mousemove", () => lightCandle(candle))
+    book.addEventListener("mouseleave", () => darkCandle(candle))
+    window.addEventListener("unload", () => darkCandle(candle))
 }
 
 
-function darkCandle(book) {
-    book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc700"
-    book.firstElementChild.firstElementChild.style.boxShadow = "none"
-    book.firstElementChild.firstElementChild.nextElementSibling.style.display = "none"
+function darkCandle(candle) {
+    candle.style.backgroundColor = "#f1efc700"
+    candle.style.boxShadow = "none"
+    $(candle).next().fadeOut(1)
 }
 
-function lightCandle(book) { 
-    book.firstElementChild.firstElementChild.style.backgroundColor = "#f1efc783"
-    book.firstElementChild.firstElementChild.style.boxShadow = "0px 0px 30px 20px #f1efc791"
-    book.firstElementChild.firstElementChild.nextElementSibling.style.display = "block"
+function lightCandle(candle) { 
+    candle.style.backgroundColor = "#f1efc783"
+    candle.style.boxShadow = "0px 0px 30px 20px #f1efc791"
+    $(candle).next().fadeIn(150)
 }

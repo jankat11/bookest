@@ -323,14 +323,14 @@ body {
 
 .lightPlate {
     position: absolute;
-    right: 0px;
-    top: 85px;
-    width: 150px;
-    height: 150px;
+    right: 15px;
+    top: 98px;
+    width: 120px;
+    height: 120px;
     z-index: 5;
     display: none;
     background-image: linear-gradient(#efd29b00, #854e0500);
-    box-shadow: 0px -167px 20px 3px #ffffff14;
+    box-shadow: 0px -167px 20px 3px #ffffff1a;
     border-radius: 75px 75px 75px 75px;
 }
 
@@ -384,8 +384,8 @@ body {
 
 
 .candleLeft:hover {
-    background-color: rgb(241 239 199 / 48%);
-    box-shadow: rgb(241 239 199 / 57%) 0px 0px 37px 18px;
+    background-color: rgb(241 239 199 / 37%);
+    box-shadow: rgb(241 239 199 / 36%) 0px 0px 20px 20px;
 }
 
 .candleLeft {
@@ -561,20 +561,17 @@ margin-top: 30px !important;
 
 .timeStamp {
     font-size: smaller;
-
     font-weight: 300;
-    padding-top: 2px;
     padding-right: 5px;
     padding-left: 10px;
-    position: relative;
-    bottom: 5px;
-    display: inline;
+    display: block;
     width: fit-content;
 }
 
 .reviewUsername {
     margin-top: 4px;
 }
+
 
 .reviewUsername,
 .reviewImage {
@@ -603,36 +600,16 @@ margin-top: 30px !important;
 }
 
 
-@keyframes delete {
-    0% {
-        opacity: 1;
-        margin-bottom: 10px;
-    }
-
-    100% {
-        opacity: 0;
-        height: 0px;
-        margin-bottom: 0px;
-    }
-}
 
 .reviewItem,
 .myReviewItem {
     margin-bottom: 10px;
-    animation-name: delete;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-play-state: paused;
 }
 
 .deleteReview {
-    position: relative;
-    bottom: 10px;
-    text-align: right;
-    padding: 5px;
-    margin-bottom: 0px;
-    display: inline;
-    float: right;
+
+    display: block;
+   
 }
 
 .deleteReview .delete {

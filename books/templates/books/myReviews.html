@@ -1,5 +1,5 @@
 {% extends 'books/layout.html' %}
-
+{% load static %}
 {% block body %}
 <div class="bookSwitch review" >
     <h4 id="myRevHeader">My Reviews:</h4>
@@ -19,27 +19,6 @@
     </div>
 </div>
 
-<script>
-    document.querySelectorAll(".delete").forEach(button => {
-        button.onclick = function() {
-            if (confirm("Are you sure to delete your review?")) {
-                fetch(`/delete_review/${this.id}`)
-                .then(response => response.json())
-                .then(result => {
-                    console.log(result.success)
-                    let review = this.parentElement.parentElement
-                    review.style.animationPlayState = 'running';
-                    review.addEventListener('animationend', () => {
-                        review.remove();
-                    });
-                });
-            }
-        }
-    });
-    document.querySelectorAll(".reviewContent").forEach(review => {
-        text = review.textContent
-        review.innerHTML = text
-    })
-</script>
+<script src="{% static 'books/script/myNotes.js' %}"></script>
 
 {% endblock %}
