@@ -241,11 +241,6 @@ body {
     margin-left: 10%;
 }
 
-
-body * {
-    border: solid white 1px;
-}
-
 .bookDiv:hover {
     cursor: pointer;
 }

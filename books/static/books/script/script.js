@@ -53,7 +53,7 @@ shortenTitle()
 
 // fix nav-bar when scrolling
 window.addEventListener('scroll', function () {
-    console.log(topBar.offsetHeight)
+    console.log(topItems.offsetHeight)
     const section = document.querySelector("#blockBody")
     if (window.scrollY > 110) {
         topBar.classList.add('fixed-top');
