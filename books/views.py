@@ -14,7 +14,7 @@ from .models import User, Book, BookShelf, Review
 
 class ReviewForm(forms.Form):
     review = forms.CharField(label="", 
-        widget=forms.Textarea(attrs={'placeholder': 'Write your rewiew.', 'class': 'form-control', 
+        widget=forms.Textarea(attrs={'placeholder': 'Write your rewiew.', 'class': 'form-control shadow-none', 
         'id': 'reviewArea', 'rows': 4}))
 
 class SearchForm(forms.Form):

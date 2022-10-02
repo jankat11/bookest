@@ -20,6 +20,7 @@ function turnAntique() {
     theme.style.color = "#856202"
     profile ? profile.style.backgroundColor = "#462303" : ""
     profile ? profile.style.color = "#fada9e" : ""
+    document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "#ffe7ac" : null
     document.querySelector("#menuItems").style.backgroundColor = "#ffe7ac"
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-warning loginButton" : ""
     document.querySelector("#submitRegister") ? document.querySelector("#submitRegister").className = "btn btn-warning loginButton" : ""
@@ -86,6 +87,7 @@ function turnModern() {
     theme.style.color = "white"
     profile ? profile.style.backgroundColor = "#02bbab31" : ""
     profile ? profile.style.color = "black" : ""
+    document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput" : null
     document.querySelector("#menuItems").style.backgroundColor = "whitesmoke"
     document.querySelector(".topPıcAntique") ? document.querySelector(".topPıcAntique").className = "topPıc" : null
@@ -93,7 +95,7 @@ function turnModern() {
     document.querySelector("#submitRegister") ? document.querySelector("#submitRegister").className = "btn btn-primary loginButton" : ""
     if (document.querySelectorAll(".reviewItem")) {
         document.querySelectorAll(".reviewItem").forEach(item => {
-            item.className = "reviewItem border border-dark rounded"
+            item.className = "reviewItem border border-secondary rounded"
         })
     }
     if (document.querySelector("#theShelf")) {

@@ -380,6 +380,9 @@ body {
     border-color: #4e4417;
 }
 
+
+
+
 .candleLeft:hover {
     background-color: rgb(241 239 199 / 48%);
     box-shadow: rgb(241 239 199 / 57%) 0px 0px 37px 18px;
@@ -533,6 +536,11 @@ margin-top: 30px !important;
     margin-bottom: 20px;
 }
 
+.form-check input:checked {
+    background-color: green !important;
+    border-color: green !important;
+}
+
 
 .pageEnd {
     font-family: sans-serif;
@@ -548,17 +556,24 @@ margin-top: 30px !important;
 }
 
 #sendReview {
-    margin-top: 7px;
+    margin-top: 10px;
 }
 
 .timeStamp {
     font-size: smaller;
-    font-style: italic;
+
+    font-weight: 300;
     padding-top: 2px;
     padding-right: 5px;
     padding-left: 10px;
-    float: right;
-    display: block;
+    position: relative;
+    bottom: 5px;
+    display: inline;
+    width: fit-content;
+}
+
+.reviewUsername {
+    margin-top: 4px;
 }
 
 .reviewUsername,
@@ -575,6 +590,8 @@ margin-top: 30px !important;
 .reviewContent {
     padding: 10px;
     width: 100%;
+    margin-bottom: 20px;
+    word-wrap: break-word;
 }
 
 .lastTime {
@@ -609,8 +626,17 @@ margin-top: 30px !important;
 }
 
 .deleteReview {
+    position: relative;
+    bottom: 10px;
     text-align: right;
     padding: 5px;
+    margin-bottom: 0px;
+    display: inline;
+    float: right;
+}
+
+.deleteReview .delete {
+    border: none;
 }
 
 #rmspinner, #addspinner {
