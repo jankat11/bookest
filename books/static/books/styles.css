@@ -242,6 +242,10 @@ body {
 }
 
 
+body * {
+    border: solid white 1px;
+}
+
 .bookDiv:hover {
     cursor: pointer;
 }
