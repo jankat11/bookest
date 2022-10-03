@@ -29,9 +29,28 @@
         <div class="bookInfoItem">categories: {{book.categories}}</div>
         {% endif %}
         <div class="bookInfoItem">look on
-            <a id="amazon" href="https://www.amazon.com/dp/{{book.isbn}} ">Amazon</a>
+            <a data-amazon="https://www.amazon.com/dp/{{book.isbn}}" id="amazon" href="https://www.amazon.com/dp/{{book.isbn}}">Amazon</a>
             <a id="googleBook" href="{{book.googleBooks}}">Google Books</a>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                fetch("https://www.google.com")
+                .then((response) => {
+                    console.log("google.com is:", response.status)
+                })
+                
+                fetch(`${document.querySelector("#amazon").dataset.amazon}`)
+                .then((response) => {
+                    console.log("amazon wrong is : ", response.status)
+                    console.log(document.querySelector("#amazon").dataset.amazon)
+                })
+                fetch("https://www.amazon.com/dp/0316499633")
+                .then((response) => {
+                    console.log("amazon true is : ", response.status)
+                })
+                
+            })
+        </script>
     </div>
     </div>
     {% if book.description %}

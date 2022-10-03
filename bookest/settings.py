@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "thebookest.herokuapp.com"]
 
 INSTALLED_APPS = [
     'books',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -111,6 +114,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+
+
+CORS_ALLOWED_ORIGINS = [
+    "https://www.amazon.com",
+    "http://127.0.0.1:8000"
 ]
 
 
