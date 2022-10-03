@@ -17,7 +17,10 @@
     <h3 class="readShelf readShelfTop">Will be read</h3>
     <div id="topShelf" class="readShelfModern">
     {% for book_w in will_be_read %}
-        <img id="{{book_w.id}}" class="bookOnTheShelf" src="{% if book_w.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_w.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" width="50" alt="no image">
+        <div id="{{book_w.id}}"  class="bookOnTheShelf">
+            <img  src="{% if book_w.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_w.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image">       
+            <div class="{% if book_w.cover %}titleForNoCover{% else %}titleForCover{% endif %}">{{book_w.title}}</div>          
+        </div>
     {% empty %}
         <span class="emptyShelf">This bookshelf is empty</span>
     {% endfor %}
@@ -27,11 +30,15 @@
     <h3 class="readShelf readShelfBottom">Has been read</h3>
     <div id="bottomShelf" class="readShelfModern">
     {% for book_h in has_been_read %}
-        <img id="{{book_h.id}}" class="bookOnTheShelf" src="{% if book_h.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_h.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" width="50" alt="no image">
+        <div  id="{{book_h.id}}" class="bookOnTheShelf">
+            <img  src="{% if book_h.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_h.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image">
+            <div class="{% if book_h.cover %}titleForNoCover{% else %}titleForCover{% endif %}">{{book_h.title}}</div>
+        </div>
     {% empty %}
         <span class="emptyShelf">This bookshelf is empty</span>
     {% endfor %}
     </div>
+
 </div>
 <script src="{% static 'books/script/mybooks.js' %}"></script>
 {% endblock %}

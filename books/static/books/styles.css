@@ -515,13 +515,35 @@ margin-top: 30px !important;
 }
 
 .bookOnTheShelf {
-    margin: 5px;
-    margin-bottom: 20px;
-    padding: 5px;
+    margin: 0px;
+    margin-bottom: 11px;
+    padding-top: 25px;
+    padding-left: 10px;
+    padding-right: 0px;
+    font-size: 8px; 
+    display: inline-block;
 }
+
 
 .bookOnTheShelf:hover {
     cursor: pointer;
+}
+
+.titleForNoCover, .titleForCover {
+    font-size: 8px;
+    text-align: center;
+    position: relative;
+    bottom: 50px;
+    color: #fada9e;
+}
+
+
+.titleForCover {
+    color: #fada9e00;
+}
+
+.titleForNoCover {
+    color: #fada9e;
 }
 
 .readShelfModern {

@@ -125,9 +125,9 @@ def my_reviews(request):
 def my_books(request):
     try:
         book_shelf = BookShelf.objects.get(owner=request.user)
-        will_be_read = [{"id": book.google_id, "cover": book.no_cover}
+        will_be_read = [{"id": book.google_id, "cover": book.no_cover, "title": book.title[0:10]}
                         for book in book_shelf.will_be_read.all()]
-        has_been_read = [{"id": book.google_id, "cover": book.no_cover}
+        has_been_read = [{"id": book.google_id, "cover": book.no_cover, "title": book.title[0:10]}
                          for book in book_shelf.has_been_read.all()]
         return render(request, "books/myBooks.html", {
             "form": SearchForm(),
