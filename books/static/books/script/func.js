@@ -27,7 +27,6 @@ function bestSellers(genre) {
         Promise.all(promises).then(() => {
             document.querySelector("#spinnerIndex").style.display = "none"
         })
-        
     });
 }
 
