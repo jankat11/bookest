@@ -539,7 +539,7 @@ margin-top: 30px !important;
 
 
 .titleForCover {
-    color: #fada9e00;
+    z-index: -10;
 }
 
 .titleForNoCover {
