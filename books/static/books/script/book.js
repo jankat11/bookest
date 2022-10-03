@@ -38,31 +38,34 @@ document.querySelectorAll(".checkbox").forEach(checkbox => {
     }
 });
 
-document.querySelector("#reviewForm").addEventListener("submit", event => {
-    if (!document.querySelector("#reviewArea").value) {
-        alert("You must not send empty review!")
-        event.preventDefault()
-    }
-})
-
-document.querySelectorAll(".delete").forEach(button => {
-    button.onclick = function() {
-        if (confirm("Are you sure to delete your note?")) {
-            let review = $(this).parent().parent().parent()
-            $(review).slideUp()
-            fetch(`/delete_review/${this.id}`)
-            .then(response => response.json())
-            .then(result => {
-                console.log(result.success)
-            });
+if(document.querySelector("#reviewForm")) {
+    document.querySelector("#reviewForm").addEventListener("submit", event => {
+        if (!document.querySelector("#reviewArea").value) {
+            alert("You must not send empty review!")
+            event.preventDefault()
         }
-    }
-});
+    })
 
-document.querySelectorAll(".reviewContent").forEach(review => {
-    text = review.textContent
-    review.innerHTML = text
-});
+    document.querySelectorAll(".delete").forEach(button => {
+        button.onclick = function() {
+            if (confirm("Are you sure to delete your note?")) {
+                let review = $(this).parent().parent().parent()
+                $(review).slideUp()
+                fetch(`/delete_review/${this.id}`)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result.success)
+                });
+            }
+        }
+    });
+
+    document.querySelectorAll(".reviewContent").forEach(review => {
+        text = review.textContent
+        review.innerHTML = text
+    });
+}
+
 
 if(document.querySelector("#removeBookShelfButton")) {
     document.querySelector("#removeBookShelfButton").onclick = function() {
