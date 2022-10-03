@@ -74,24 +74,25 @@
     {% if user.is_authenticated %}
         <form id="reviewForm" class="form-group" action="/get_review/{{book.google_id}}---{{book.isbn}}---{{book.title}}" method="post" >
             {% csrf_token %}
+            <h6>You can save notes for yourself about this book:</h6>
             <div id="reviewTextarea">{{reviewForm}}</div>
             <input id="sendReview" class="btn btn-success btn-sm" type="submit" value="Send">
         </form>
     {% else %}
-        <a href="{% url 'login' %}"><h5>Login to write review</h5></a>
+        <a style="position: relative; bottom: 20px;" href="{% url 'login' %}"><h5>Login to write note</h5></a>
     {% endif %}
 
+    {% if user.is_authenticated %}
     {% if reviews %}
-        <h4>Reviews:</h4>
+        <h4>Notes you wrote:</h4>
     {% else %}
-        <h4>Reviews:</h4>
+        <h4>Notes you wrote:</h4>
     {% endif %}
     <hr class="bookSwitch ">
 
     <div class="reviewSection">
         {% for review in reviews %}
-        <div class="reviewItem border border-secondary rounded"> 
-            <div class="reviewUsername">{{review.owner}}'s review:</div>   
+        <div class="reviewItem border border-secondary rounded">  
             <div class="reviewContent lead">{{review.content}}</div> 
             <div style="display: flex; justify-content:space-between; width: 100%;">
                 <div class="timeStamp">{{review.time}}</div>
@@ -104,9 +105,10 @@
 
         </div>     
     {% empty %}
-        <h5 class="pageEnd">No reviews yet.</h5>
+        <h5 class="pageEnd">You did not write note yet.</h5>
     {% endfor %}
     </div>
+    {% endif %}
 </div>
 
 <script src="{% static 'books/script/book.js' %}"></script>

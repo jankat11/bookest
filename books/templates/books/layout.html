@@ -42,7 +42,7 @@
         <a class="nav-link" href="{% url 'my_books' %}"><span class="topNavItem rounded desktop">My Books</span> </a>
         {% endif %} 
         {% if user.is_authenticated %}  
-        <a class="nav-link " href="{% url 'my_reviews' %}"><span class="topNavItem rounded desktop">My Reviews</span> </a>
+        <a class="nav-link " href="{% url 'my_reviews' %}"><span class="topNavItem rounded desktop">My Notes</span> </a>
         {% endif %} 
         {% if user.is_authenticated %}
         <a id="logOut " class="nav-link" href="{% url 'logout' %}"><span class="topNavItem rounded desktop">Log Out</span></a>
@@ -60,7 +60,7 @@
             <a class="nav-link mobileNav" href="{% url 'my_books' %}"><span class="mobileNav rounded">My Books</span> </a>
             {% endif %} 
             {% if user.is_authenticated %}  
-            <a class="nav-link mobileNav" href="{% url 'my_reviews' %}"><span class="mobileNav rounded">My Reviews</span> </a>
+            <a class="nav-link mobileNav" href="{% url 'my_reviews' %}"><span class="mobileNav rounded">My Notes</span> </a>
             {% endif %} 
             {% if user.is_authenticated %}
             <a id="logOut" class="nav-link mobileNav" href="{% url 'logout' %}"><span class="mobileNav rounded">Log Out<svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" fill="currentColor" class="bi bi-power powerIcon" viewBox="0 0 16 16">

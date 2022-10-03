@@ -1,7 +1,7 @@
 
 document.querySelectorAll(".delete").forEach(button => {
     button.onclick = function() {
-        if (confirm("Are you sure to delete your review?")) {
+        if (confirm("Are you sure to delete your note?")) {
             let review = $(this).parent().parent()
             review.slideUp()
             fetch(`/delete_review/${this.id}`)

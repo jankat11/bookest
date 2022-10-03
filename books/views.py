@@ -12,32 +12,34 @@ from .util import get_book
 from .models import User, Book, BookShelf, Review
 # Create your views here.
 
+
 class ReviewForm(forms.Form):
-    review = forms.CharField(label="", 
-        widget=forms.Textarea(attrs={'placeholder': 'Write your rewiew.', 'class': 'form-control shadow-none', 
-        'id': 'reviewArea', 'rows': 4}))
+    review = forms.CharField(label="",
+                             widget=forms.Textarea(attrs={'placeholder': 'Write your notes (visible only to you).', 'class': 'form-control shadow-none',
+                                                          'id': 'reviewArea', 'rows': 4}))
+
 
 class SearchForm(forms.Form):
-    book_info = forms.CharField(min_length=1, strip=True, label="", 
-        widget=forms.TextInput(attrs={'placeholder': 'Search a Book or Author', 'class': 'searchInput'}))
+    book_info = forms.CharField(min_length=1, strip=True, label="",
+                                widget=forms.TextInput(attrs={'placeholder': 'Search a Book or Author', 'class': 'searchInput'}))
 
 
 class LoginForm(forms.Form):
     username = forms.CharField(min_length=2, max_length=30, strip=True, label="",
-        widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+                               widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     password = forms.CharField(min_length=1, label="",
-        widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
 
 class RegisterForm(forms.Form):
     username = forms.CharField(min_length=2, max_length=30, strip=True, label="",
-        widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+                               widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     email = forms.EmailField(min_length=2, max_length=30, label="",
-        widget=forms.EmailInput(attrs={'placeholder': 'Email Address'}))
+                             widget=forms.EmailInput(attrs={'placeholder': 'Email Address'}))
     password = forms.CharField(min_length=1, label="",
-        widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
-    confirm_password= forms.CharField(min_length=1, label="",
-        widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
+    confirm_password = forms.CharField(min_length=1, label="",
+                                       widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}))
 
 
 def index(request):
@@ -58,10 +60,10 @@ def search(request, book_info):
     return render(request, "books/search.html", {
         "form": SearchForm(),
         "bookInfo": book_info,
-        "message" : "Results:",
-        "load" : "see more results"
+        "message": "Results:",
+        "load": "see more results"
     })
-        
+
 
 """ def more_results(request, result):
     book_info = result.split("loadsMore")[0]
@@ -80,8 +82,9 @@ def book(request, id):
 
     try:
         book = Book.objects.get(google_id=id)
-        
-        reviews = sorted([book.serialize() for book in book.reviews.all()], key=lambda review: review["time"], reverse=True)
+
+        reviews = sorted([book.serialize() for book in book.reviews.all().filter(
+            owner=request.user)], key=lambda review: review["time"], reverse=True)
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
             check_has_read = book_shelf.has_been_read.get(id=book.id)
@@ -110,23 +113,27 @@ def book(request, id):
 @login_required
 def my_reviews(request):
     user = request.user
-    reviews = sorted(user.reviews.all(), key=lambda review: review.time, reverse=True)
+    reviews = sorted(user.reviews.all(),
+                     key=lambda review: review.time, reverse=True)
     return render(request, "books/myReviews.html", {
         "form": SearchForm(),
         "reviews": reviews
     })
 
+
 @login_required
 def my_books(request):
     try:
         book_shelf = BookShelf.objects.get(owner=request.user)
-        will_be_read = [{"id": book.google_id, "cover": book.no_cover} for book in book_shelf.will_be_read.all()]
-        has_been_read = [{"id": book.google_id, "cover": book.no_cover} for book in book_shelf.has_been_read.all()]
+        will_be_read = [{"id": book.google_id, "cover": book.no_cover}
+                        for book in book_shelf.will_be_read.all()]
+        has_been_read = [{"id": book.google_id, "cover": book.no_cover}
+                         for book in book_shelf.has_been_read.all()]
         return render(request, "books/myBooks.html", {
             "form": SearchForm(),
             "has_been_read": has_been_read,
             "will_be_read": will_be_read,
-            "message": "" 
+            "message": ""
         })
     except:
         return render(request, "books/myBooks.html", {
@@ -143,7 +150,8 @@ def add_my_books(request, ids):
         title = ids.split("---")[2]
         cover_status = request.POST["no_cover"] == "no cover"
         if Book.objects.filter(google_id=google_id).all().count() == 0:
-            Book.objects.create(google_id=google_id, isbn=isbn, title=title, no_cover=cover_status)
+            Book.objects.create(google_id=google_id, isbn=isbn,
+                                title=title, no_cover=cover_status)
         if BookShelf.objects.filter(owner=request.user).all().count() == 0:
             BookShelf.objects.create(owner=request.user)
         book = Book.objects.get(google_id=google_id)
@@ -153,7 +161,8 @@ def add_my_books(request, ids):
             try:
                 check = book_shelf.will_be_read.get(id=book.id)
                 if check is not None:
-                    messages.info(request, "This book already in 'will be read' shelf")
+                    messages.info(
+                        request, "This book already in 'will be read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
@@ -170,7 +179,8 @@ def add_my_books(request, ids):
             try:
                 check = book_shelf.has_been_read.get(id=book.id)
                 if check is not None:
-                    messages.info(request, "This book already in 'has been read' shelf")
+                    messages.info(
+                        request, "This book already in 'has been read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
@@ -199,7 +209,7 @@ def get_review(request, ids):
         user = request.user
         content = request.POST["review"].replace("\n", "<br>")
         Review.objects.create(owner=user, on_book=book, content=content)
-        messages.info(request,  "your review successfully added")
+        messages.info(request,  "your note successfully added")
         return HttpResponseRedirect(f"/book/{google_id}")
 
 
@@ -230,7 +240,6 @@ def remove_from_bookshelf(request, book_id):
     })
 
 
-
 def login_view(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -242,7 +251,7 @@ def login_view(request):
                 "message": "An error occured, please try again.",
                 "form": SearchForm(),
                 "loginForm": LoginForm()
-        })
+            })
 
         if user is not None:
             login(request, user)
@@ -272,13 +281,12 @@ def register(request):
         confirm_password = request.POST["confirm_password"]
         email = request.POST["email"]
 
-        if not username.isalnum(): 
+        if not username.isalnum():
             return render(request, "books/register.html", {
                 "message": "Please enter your username without special character.",
                 "form": SearchForm(),
                 "registerForm": RegisterForm()
             })
-        
 
         if password == "":
             return render(request, "books/register.html", {
