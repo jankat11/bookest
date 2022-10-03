@@ -74,7 +74,7 @@
     {% if user.is_authenticated %}
         <form id="reviewForm" class="form-group" action="/get_review/{{book.google_id}}---{{book.isbn}}---{{book.title}}" method="post" >
             {% csrf_token %}
-            <h6>You can save notes for yourself about this book:</h6>
+            <div>You could save notes about the book:</div>
             <div id="reviewTextarea">{{reviewForm}}</div>
             <input id="sendReview" class="btn btn-success btn-sm" type="submit" value="Send">
         </form>
