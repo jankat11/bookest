@@ -87,7 +87,7 @@ AUTH_USER_MODEL = "books.User"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': { 
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "d2jqegl58r5omp",
         "HOST": "ec2-3-214-2-141.compute-1.amazonaws.com",
