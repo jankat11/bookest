@@ -73,7 +73,7 @@ body {
 }
 
 .topNavItem, .topNavItemA, #blockBody, #menuItems, .searchInput,
-#profile, #title, #change, .author, .bookName {
+#profile, #title, #subTitle, #change, .author, .bookName, .searchInputAntique{
     font-family: "Abyssinica SIL", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -416,6 +416,7 @@ body {
 
 .searchInput {
     background-color: white;
+    padding-left: 5px;
 }
 
 .searchInputAntique {
@@ -423,6 +424,7 @@ body {
     border-color: #f7ba12;
     box-shadow: none;
     outline: none;
+    padding-left: 5px;
 }
 
 .sbantique {
