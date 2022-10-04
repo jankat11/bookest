@@ -3,8 +3,11 @@
 
 body {
     display: none;
-    -bottom: 30px;
+    bottom: -30px;
+    font-family: "Abyssinica SIL", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+    
 
 .topPıc {
     background-image: url("/static/books/images/booksModernLarge.png");
@@ -69,15 +72,11 @@ body {
     color: #3c361c;
 }
 
-.topNavItem, .topNavItemA,
-#profile, #title, #change, .author, .bookName,
-#indexHeader, #searchHeader, .bookGenre {
+.topNavItem, .topNavItemA, #blockBody, #menuItems, .searchInput,
+#profile, #title, #change, .author, .bookName {
     font-family: "Abyssinica SIL", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.mobileNav {
-    font-family: sans-serif;
-}
 
 #title {
     display: inline-block;
@@ -190,7 +189,6 @@ body {
 
 .mobileNav {
     font-size: larger;
-    font-weight: bold;
     margin-top: 10px;
 }
 
@@ -371,7 +369,7 @@ body {
     margin-left: 14px;
     padding: 2px;
     padding-left: 5px;
-    font-family: sans-serif;
+
 }
 
 #bookGenre:focus {
@@ -573,10 +571,6 @@ margin-top: 30px !important;
     border-color: green !important;
 }
 
-
-.pageEnd {
-    font-family: sans-serif;
-}
 
 #reviewArea {
     width: 100%;
