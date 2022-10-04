@@ -231,7 +231,7 @@ body {
     top: 8px;
     right: 5px;
     border: none;
-    background-color: #3a3a3a35;
+    background-color: #3a3a3a50;
     width: 70px;
     height: 21px;
 }
@@ -482,9 +482,7 @@ body {
     bottom: 40px;
 }
 
-.bookInfoItem {
-    font-style: italic;
-}
+
 
 #bookTitle {
     margin-left: 10%;
@@ -503,7 +501,9 @@ body {
 #description {
     margin-top: 10px;
     margin-bottom: 40px;
+    width: 100%;
 }
+
 
 .bookTopInfo {
     display: flex;
@@ -531,7 +531,6 @@ body {
 
 .emptyShelf {
     margin: 20px;
-    font-style: italic;
     font-weight: 400;
 }
 

@@ -89,7 +89,7 @@ function turnModern() {
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
     $("#arrow").show()
-    $("#chWrapper").css("background-color", "#3a3a3a35")
+    $("#chWrapper").css("background-color", "#3a3a3a50")
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null
     document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"

@@ -15,7 +15,7 @@ from .models import User, Book, BookShelf, Review
 
 class ReviewForm(forms.Form):
     review = forms.CharField(label="",
-                             widget=forms.Textarea(attrs={'placeholder': 'Write your notes (visible only to you).', 'class': 'form-control shadow-none',
+                             widget=forms.Textarea(attrs={'placeholder': 'Write your notes (only visible to you).', 'class': 'form-control shadow-none',
                                                           'id': 'reviewArea', 'rows': 4}))
 
 

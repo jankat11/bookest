@@ -46,7 +46,8 @@ def get_book(id):
     except:
         page_count = ""
     try:
-        categories = ", ".join(response["volumeInfo"]["categories"])
+        categories = " ".join(response["volumeInfo"]["categories"]).split("/")
+        categories = (" / ").join(set([cat.lower().strip() for cat in categories]))
     except:
         categories = ""
     return {
