@@ -131,6 +131,6 @@ function turnModern() {
         });
     }
     if (document.querySelector("#bookGenre")) {
-        document.querySelector("#bookGenre").className = "bookGenreModern"
+        document.querySelector("#bookGenre").className = "bookGenreModern border"
     }
 }
