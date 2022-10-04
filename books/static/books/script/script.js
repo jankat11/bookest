@@ -94,7 +94,7 @@ $("#arrow").click(function() {
     this.nextElementSibling.click()
 })
 
-
+window.onpopstate = defaultAddMenu
 
 
     

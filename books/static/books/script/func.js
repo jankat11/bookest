@@ -145,3 +145,10 @@ function lightCandle(candle) {
     candle.style.boxShadow = "0px 0px 30px 20px #f1efc791"
     $(candle).next().fadeIn(95)
 }
+
+function defaultAddMenu() {
+    document.querySelector("#removeBookShelfButton") ? 
+    document.querySelector("#removeBookShelfButton").disabled = false : null
+    document.querySelector("#addBookShelfButton").disabled = false
+    document.querySelector("#addspinner").style.display = "none"
+}

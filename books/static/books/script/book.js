@@ -16,18 +16,10 @@ document.getElementById("addBookForm").onsubmit = function(event) {
         document.querySelector("#addBookShelfButton").disabled = true
         document.querySelector("#addspinner").style.display = "inline-block"
         window.onunload = defaultAddMenu
-        window.onpopstate = defaultAddMenu
-      
     } 
 } 
 
 
-function defaultAddMenu() {
-    document.querySelector("#removeBookShelfButton") ? 
-    document.querySelector("#removeBookShelfButton").disabled = false : null
-    document.querySelector("#addBookShelfButton").disabled = false
-    document.querySelector("#addspinner").style.display = "none"
-}
 
 document.querySelectorAll(".checkbox").forEach(checkbox => {
     let status = checkbox.checked
