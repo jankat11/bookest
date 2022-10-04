@@ -4,7 +4,7 @@
 function turnAntique() {
     localStorage.setItem('status', "antique");
     document.querySelector("#menu").className = "navbar-toggler menuHistory mobile";
-    topBar.style.backgroundColor = "#1f1000be"
+    topBar.style.backgroundColor = "#1b0e00eb"
     topBar.style.color = "#fcf5e7"
     topBar.style.boxShadow = "0px 1px 3px 1px rgba(247, 245, 131, 0.288)"
     topBar.className = "navbar navbar-dark"
@@ -78,7 +78,7 @@ function turnModern() {
     subTitle.style.color = "#3c361c"
     topBar.style.color = "black"
     topBar.style.boxShadow = "1px 1px 3px 1px rgba(131, 185, 247, 0.658)"
-    topBar.style.backgroundColor = "#01807531"
+    topBar.style.backgroundColor = "#b2d9d5e6"
     topBar.className = "navbar navbar-light"
     topItems.style.backgroundColor = "#9aa5bd47"
     topItems.style.boxShadow = "2px 2px 4px 1px #42668dc7"
@@ -92,7 +92,7 @@ function turnModern() {
     $(".topNavItem").removeClass("topNavItemA")
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput" : null
-    document.querySelector("#menuItems").style.backgroundColor = "whitesmoke"
+    document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"
     document.querySelector(".topPıcAntique") ? document.querySelector(".topPıcAntique").className = "topPıc" : null
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-primary loginButton" : ""
     document.querySelector("#submitRegister") ? document.querySelector("#submitRegister").className = "btn btn-primary loginButton" : ""

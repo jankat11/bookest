@@ -58,13 +58,13 @@
         </form>
         {% if status %}
        
-                <span id="buttonWrapper">
-                    <button id="removeBookShelfButton" data-book="{{bookId}}" class="btn btn-danger btn-sm">
-                        Remove from bookshelf
-                    </button>
-                </span>
-                <span id="rmspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>
-          
+            <span id="buttonWrapper">
+                <button id="removeBookShelfButton" data-book="{{bookId}}" class="btn btn-danger btn-sm">
+                    Remove from bookshelf
+                </button>
+            </span>
+            <span id="rmspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>
+        
         {% endif %}
     </div>
 </div>
@@ -101,7 +101,6 @@
                   </svg></button></div>
                 {% endif %}
             </div>
-
         </div>     
     {% empty %}
         <h5 class="pageEnd">You did not write note yet.</h5>
