@@ -106,7 +106,7 @@ function turnModern() {
         document.querySelector("#topShelf").className = "readShelfModern"
         document.querySelector("#bottomShelf").className = "readShelfModern"
     } 
-    document.querySelector("#searchButton").className = "btn btn-dark btn-sm"
+    document.querySelector("#searchButton").className = "btn btn-secondary btn-sm"
     document.body.style.backgroundColor = "white"
     document.querySelectorAll(".candles").forEach(candle => {
         candle.style.display = "none"
