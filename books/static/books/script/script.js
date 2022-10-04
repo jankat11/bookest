@@ -57,7 +57,7 @@ window.addEventListener('scroll', function () {
     $("#navbarToggleExternalContent").collapse("hide")
     if (window.scrollY > 110) {
         topBar.classList.add('fixed-top');
-        section.style.marginTop = "44px"
+        section.style.marginTop = topBar.offsetHeight + "px" 
         menuItems.style.position = "fixed";
         menuItems.style.top = "50px";
     } else {
@@ -95,7 +95,7 @@ $("#arrow").click(function() {
 
 
 
-console.log(topBar.offsetHeight)
+
     
 
     
