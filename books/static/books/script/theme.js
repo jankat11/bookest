@@ -78,9 +78,9 @@ function turnModern() {
     subTitle.style.color = "#3c361c"
     topBar.style.color = "black"
     topBar.style.boxShadow = "1px 1px 3px 1px #496b93"
-    topBar.style.backgroundColor = "#c6e8e5f0"
+    topBar.style.backgroundColor = "#3b9ea3f0"
     topBar.className = "navbar navbar-light"
-    topItems.style.backgroundColor = "#9aa5bd47"
+    topItems.style.backgroundColor = "#acdae633"
     topItems.style.boxShadow = "2px 2px 4px 1px #42668dc7"
     theme.innerHTML = "antique"
     theme.style.backgroundColor = "#3a3a3a95"
@@ -106,7 +106,7 @@ function turnModern() {
         document.querySelector("#topShelf").className = "readShelfModern"
         document.querySelector("#bottomShelf").className = "readShelfModern"
     } 
-    document.querySelector("#searchButton").className = "btn btn-secondary btn-sm"
+    document.querySelector("#searchButton").className = "btn btn-light btn-sm"
     document.body.style.backgroundColor = "white"
     document.querySelectorAll(".candles").forEach(candle => {
         candle.style.display = "none"
