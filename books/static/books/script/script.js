@@ -58,15 +58,16 @@ window.addEventListener('scroll', function () {
     if (window.scrollY > 110) {
         topBar.classList.add('fixed-top');
         section.style.marginTop = topBar.offsetHeight + "px" 
+        menuItems.style.top = topBar.offsetHeight;
         menuItems.style.position = "fixed";
-        menuItems.style.top = "50px";
+        
     } else {
         document.querySelector("#blockBody").style.marginTop = "0px"
         topBar.classList.remove('fixed-top');
         topItems.style.marginBottom = "0px";
         topBar.style.marginTop = "0px" 
         menuItems.style.position = "absolute"
-        menuItems.style.top = 160
+        menuItems.style.top = 110 + topBar.offsetHeight + 2
     }
 });
 
