@@ -54,6 +54,7 @@ shortenTitle()
 // fix nav-bar when scrolling
 window.addEventListener('scroll', function () {
     const section = document.querySelector("#blockBody")
+    $("#navbarToggleExternalContent").collapse("hide")
     if (window.scrollY > 110) {
         topBar.classList.add('fixed-top');
         section.style.marginTop = "45px"
