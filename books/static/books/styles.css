@@ -45,10 +45,10 @@ body {
 
 #topBar {
     margin-top: 0px;
-    background-color: #b2d9d5e6;
+    background-color: #c6e8e5f0;
     padding: 0px;
     width: 100%;
-    box-shadow: 0px 1px 3px 1px rgba(131, 185, 247, 0.658);
+    box-shadow: 0px 1px 3px 1px #496b93;
 }
 
 #bookIconHistory,
@@ -127,7 +127,7 @@ body {
 
 .topNavItem {
     padding: 11px;
-    color: black;
+    color: #091a36;
 }
 
 .topNavItemA {

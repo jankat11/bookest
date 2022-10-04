@@ -21,7 +21,7 @@ class ReviewForm(forms.Form):
 
 class SearchForm(forms.Form):
     book_info = forms.CharField(min_length=1, strip=True, label="",
-                                widget=forms.TextInput(attrs={'placeholder': 'Search a Book or Author', 'class': 'searchInput'}))
+                                widget=forms.TextInput(attrs={'placeholder': 'Search a book or author', 'class': 'searchInput border'}))
 
 
 class LoginForm(forms.Form):

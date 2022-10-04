@@ -77,8 +77,8 @@ function turnModern() {
     title.style.color = "#4e4417"
     subTitle.style.color = "#3c361c"
     topBar.style.color = "black"
-    topBar.style.boxShadow = "1px 1px 3px 1px rgba(131, 185, 247, 0.658)"
-    topBar.style.backgroundColor = "#b2d9d5e6"
+    topBar.style.boxShadow = "1px 1px 3px 1px #496b93"
+    topBar.style.backgroundColor = "#c6e8e5f0"
     topBar.className = "navbar navbar-light"
     topItems.style.backgroundColor = "#9aa5bd47"
     topItems.style.boxShadow = "2px 2px 4px 1px #42668dc7"
@@ -91,7 +91,7 @@ function turnModern() {
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
-    document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput" : null
+    document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null
     document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"
     document.querySelector(".topPıcAntique") ? document.querySelector(".topPıcAntique").className = "topPıc" : null
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-primary loginButton" : ""
