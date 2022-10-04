@@ -28,7 +28,7 @@ body {
     margin-bottom: 0px;
 }
 
-#topItems:hover {
+#topItems:hover, .bi-arrow-repeat:hover {
     cursor: pointer;
 }
 
@@ -202,15 +202,37 @@ body {
     bottom: 2px;
 }
 
-#change {
+#change, .bi-arrow-repeat {
     position: absolute;
-    top: 30px;
-    right: 20px;
+    top: 8px;
+    right: 5px;
     border: none;
     padding: 0px;
+    padding-left: 0px;
+    padding-right: 2px;
+    background-color: #3a3a3a58 !important;
+    border-radius: 0px 0px 0px 0px !important;
+}
+
+.chAntique {
+    padding: 0px;
+    color: #9c8135 !important;
+    background-color: #fada9e00 !important;
+}
+
+.chModern {
+    background-color: #3a3a3a58 !important;
+    border: none !important;
+    color: white !important;
+}
+
+.bi-arrow-repeat{
+    right: 54px;
+    padding-right: 0px;
     padding-left: 1px;
-    padding-right: 1px;
-    background-color: #3a3a3a8e;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 4px 0px 0px 4px !important;
 }
 
 #change:focus {
@@ -793,13 +815,3 @@ margin-top: 30px !important;
 }
 
 
-@media (max-width: 400px) {
-    #change {
-        font-size: small;
-        padding: 0px;
-        padding-left: 1px;
-        padding-right: 1px;
-        right: 10px;
-        top: 30px;
-    }
-}

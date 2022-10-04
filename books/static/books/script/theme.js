@@ -15,9 +15,7 @@ function turnAntique() {
     title.style.color = "#ffc46c"
     subTitle.style.color = "#f7e5b4"
     theme.innerHTML = "modern"
-    theme.style.backgroundColor = "#fada9e"
-    theme.style.border = "solid #b58327 2px"
-    theme.style.color = "#856202"
+    theme.className = "btn btn-secondary btn-sm chAntique"
     profile ? profile.style.backgroundColor = "#462303" : ""
     profile ? profile.style.color = "#fada9e" : ""
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "#ffe7ac" : null
@@ -31,6 +29,7 @@ function turnAntique() {
     }
     $(".topNavItem").addClass("topNavItemA")
     $(".topNavItemA").removeClass("topNavItem")
+    $("#arrow").hide()
     document.querySelector(".searchInput") ? document.querySelector(".searchInput").className = "searchInputAntique" : null
     document.querySelector(".topPıc") ? document.querySelector(".topPıc").className = "topPıcAntique" : null
     if (document.querySelector("#theShelf")) {
@@ -83,13 +82,12 @@ function turnModern() {
     topItems.style.backgroundColor = "#acdae633"
     topItems.style.boxShadow = "2px 2px 4px 1px #42668dc7"
     theme.innerHTML = "antique"
-    theme.style.backgroundColor = "#3a3a3a95"
-    theme.style.border = "none"
-    theme.style.color = "white"
+    theme.className = "btn btn-secondary btn-sm chModern"
     profile ? profile.style.backgroundColor = "#02bbab31" : ""
     profile ? profile.style.color = "black" : ""
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
+    $("#arrow").show()
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null
     document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"

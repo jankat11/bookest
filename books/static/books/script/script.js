@@ -88,6 +88,10 @@ window.onclick = event => {
     }
 }
 
+// switch icon clicking triggers theme change
+$("#arrow").click(function() {
+    this.nextElementSibling.click()
+})
 
 
 
