@@ -81,7 +81,7 @@ function turnModern() {
     topBar.style.backgroundColor = "#3b9ea3f0"
     topBar.className = "navbar navbar-light"
     topItems.style.backgroundColor = "#acdae633"
-    topItems.style.boxShadow = "2px 2px 4px 1px #42668dc7"
+    topItems.style.boxShadow = "2px 2px 4px 1px #669eaac7"
     theme.innerHTML = "antique"
     theme.className = "btn btn-secondary btn-sm chModern"
     profile ? profile.style.backgroundColor = "#02bbab31" : ""
@@ -89,7 +89,7 @@ function turnModern() {
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
     $("#arrow").show()
-    $("#chWrapper").css("background-color", "#3a3a3a23")
+    $("#chWrapper").css("background-color", "#3a3a3a35")
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null
     document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"

@@ -24,7 +24,7 @@ body {
     padding-right: 0px;
     padding-bottom: 10px;
     width: 550px;
-    box-shadow: 2px 2px 4px 1px #42668dc7;
+    box-shadow: 2px 2px 4px 1px #669eaac7;
     margin-bottom: 0px;
 }
 
@@ -231,12 +231,13 @@ body {
     top: 8px;
     right: 5px;
     border: none;
-    background-color: #3a3a3a23;
+    background-color: #3a3a3a35;
     width: 70px;
     height: 21px;
 }
 
 .bi-arrow-clockwise{
+    top: 10;
     right: 54px;
     padding-right: 0px;
     padding-left: 1px;
