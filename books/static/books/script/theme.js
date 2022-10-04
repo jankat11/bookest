@@ -30,6 +30,7 @@ function turnAntique() {
     $(".topNavItem").addClass("topNavItemA")
     $(".topNavItemA").removeClass("topNavItem")
     $("#arrow").hide()
+    $("#chWrapper").css("background-color", "#3a3a3a00")
     document.querySelector(".searchInput") ? document.querySelector(".searchInput").className = "searchInputAntique" : null
     document.querySelector(".topPıc") ? document.querySelector(".topPıc").className = "topPıcAntique" : null
     if (document.querySelector("#theShelf")) {
@@ -88,6 +89,7 @@ function turnModern() {
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
     $("#arrow").show()
+    $("#chWrapper").css("background-color", "#3a3a3a23")
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null
     document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"
