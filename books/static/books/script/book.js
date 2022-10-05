@@ -1,4 +1,6 @@
 
+window.onload = $("#addspinner").hide();
+
 document.getElementById("addBookForm").onsubmit = function(event) {
     if (this.dataset.login === "False") {
         event.preventDefault()
@@ -11,13 +13,11 @@ document.getElementById("addBookForm").onsubmit = function(event) {
     if (unChecked == 2) {
         event.preventDefault()
     } else {
-        document.querySelector("#removeBookShelfButton") ? 
-        document.querySelector("#removeBookShelfButton").disabled = true : null
-        document.querySelector("#addBookShelfButton").disabled = true
-        document.querySelector("#addspinner").style.display = "inline-block"
-        
-        setTimeout(defaultAddMenu, 1000)
-        
+        window.onbeforeunload = () => {
+            disabledAddMenu()
+            setTimeout(defaultAddMenu, 1000)
+        }
+
     } 
 } 
 

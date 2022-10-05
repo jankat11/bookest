@@ -152,3 +152,10 @@ function defaultAddMenu() {
     document.querySelector("#addBookShelfButton").disabled = false
     document.querySelector("#addspinner").style.display = "none"
 }
+
+function disabledAddMenu() {
+    document.querySelector("#removeBookShelfButton") ? 
+    document.querySelector("#removeBookShelfButton").disabled = true : null
+    document.querySelector("#addBookShelfButton").disabled = true
+    document.querySelector("#addspinner").style.display = "inline-block"
+}
