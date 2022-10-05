@@ -15,7 +15,9 @@ document.getElementById("addBookForm").onsubmit = function(event) {
         document.querySelector("#removeBookShelfButton").disabled = true : null
         document.querySelector("#addBookShelfButton").disabled = true
         document.querySelector("#addspinner").style.display = "inline-block"
-        window.onunload = defaultAddMenu
+        document.querySelector("#addspinner").onunload = () => {
+            defaultAddMenu()
+        }
     } 
 } 
 
