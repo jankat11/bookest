@@ -149,8 +149,10 @@ function lightCandle(candle) {
 function defaultAddMenu() {
     document.querySelector("#removeBookShelfButton") ? 
     document.querySelector("#removeBookShelfButton").disabled = false : null
-    document.querySelector("#addBookShelfButton").disabled = false
-    document.querySelector("#addspinner").style.display = "none"
+    document.querySelector("#addBookShelfButton") ?
+    document.querySelector("#addBookShelfButton").disabled = false : null
+    document.querySelector("#addspinner") ? 
+    document.querySelector("#addspinner").style.display = "none" : null
 }
 
 function disabledAddMenu() {

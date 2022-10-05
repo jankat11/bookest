@@ -14,7 +14,6 @@ document.getElementById("addBookForm").onsubmit = function(event) {
         event.preventDefault()
     } else {
         disabledAddMenu()
-        $(window).on("beforeunload", () => defaultAddMenu() )
     } 
 } 
 
