@@ -163,9 +163,7 @@ def add_my_books(request, ids):
                 if check is not None:
                     messages.info(
                         request, "This book already in 'will be read' shelf")
-                    return JsonResponse({
-                        "success": "This book already in 'will be read' shelf"
-                    })
+                    return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
             try:

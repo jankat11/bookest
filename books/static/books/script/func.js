@@ -130,7 +130,7 @@ function enlightCandles(book) {
     const candle = book.firstElementChild.firstElementChild
     book.addEventListener("mousemove", () => lightCandle(candle))
     book.addEventListener("mouseleave", () => darkCandle(candle))
-    window.addEventListener("unload", () => darkCandle(candle))
+    book.addEventListener("unload", () => darkCandle(candle))
 }
 
 
