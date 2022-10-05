@@ -13,11 +13,8 @@ document.getElementById("addBookForm").onsubmit = function(event) {
     if (unChecked == 2) {
         event.preventDefault()
     } else {
-        window.onbeforeunload = () => {
-            disabledAddMenu()
-            setTimeout(defaultAddMenu, 1000)
-        }
-
+        disabledAddMenu()
+        setTimeout(defaultAddMenu, 1000)
     } 
 } 
 
