@@ -94,7 +94,11 @@ $("#arrow").click(function() {
     this.nextElementSibling.click()
 })
 
-
+window.onpageshow = function(event) {
+    if (event.persisted) {
+        window.location.reload() 
+    }
+};
 
     
 
