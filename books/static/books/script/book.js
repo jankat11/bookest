@@ -1,5 +1,4 @@
 
-window.onload = $("#addspinner").hide();
 
 document.getElementById("addBookForm").onsubmit = function(event) {
     if (this.dataset.login === "False") {
@@ -13,10 +12,8 @@ document.getElementById("addBookForm").onsubmit = function(event) {
     if (unChecked == 2) {
         event.preventDefault()
     } else {
-        $(window).on("beforeunload", () => disabledAddMenu())
-        $(window).on("unload", () => defaultAddMenu())
-        
-        setTimeout(defaultAddMenu, 10000)
+        disabledAddMenu()
+        $(window).on("beforeunload", () => defaultAddMenu() )
     } 
 } 
 
