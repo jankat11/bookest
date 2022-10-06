@@ -31,6 +31,7 @@ function turnAntique() {
     $(".topNavItemA").removeClass("topNavItem")
     $("#arrow").hide()
     $("#chWrapper").css("background-color", "#3a3a3a00")
+    $("#threeline").attr("fill", "#fada9ec0")
     document.querySelector(".searchInput") ? document.querySelector(".searchInput").className = "searchInputAntique" : null
     document.querySelector(".topPıc") ? document.querySelector(".topPıc").className = "topPıcAntique" : null
     if (document.querySelector("#theShelf")) {
@@ -77,7 +78,7 @@ function turnModern() {
     title.style.color = "#4e4417"
     subTitle.style.color = "#3c361c"
     topBar.style.color = "black"
-    topBar.style.boxShadow = "1px 1px 3px 1px #496b93"
+    topBar.style.boxShadow = "1px 1px 3px 1px #456982"
     topBar.style.backgroundColor = "#3b9ea3f0"
     topBar.className = "navbar navbar-light"
     topItems.style.backgroundColor = "#acdae633"
@@ -90,6 +91,7 @@ function turnModern() {
     $(".topNavItem").removeClass("topNavItemA")
     $("#arrow").show()
     $("#chWrapper").css("background-color", "#3a3a3a50")
+    $("#threeline").attr("fill", "#02202277")
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null
     document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"
