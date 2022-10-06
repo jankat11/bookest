@@ -1,4 +1,10 @@
 
+// adjust collapse menu position when page load
+document.addEventListener("DOMContentLoaded", () => {
+    menuItems.style.top = 110 + topBar.offsetHeight + 2
+})
+
+
 // remember theme if changed before and load it 
 if (localStorage.getItem("status")) {
     let status = localStorage.getItem("status")
