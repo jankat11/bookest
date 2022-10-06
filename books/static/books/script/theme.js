@@ -32,6 +32,11 @@ function turnAntique() {
         document.querySelector("#sendReview").classList.remove("sendReview")
         document.querySelector("#sendReview").classList.add("sendReviewA")
     }
+    if(document.querySelector(".checkbox")) {
+        document.querySelectorAll(".checkbox").forEach(box => {
+            box.classList.add("checkA")
+        })
+    }
     $(".topNavItem").addClass("topNavItemA")
     $(".topNavItemA").removeClass("topNavItem")
     $("#arrow").attr("fill", "#e6c89070")
@@ -54,6 +59,18 @@ function turnAntique() {
     document.querySelectorAll(".candles").forEach(candle => {
         candle.style.display = "inline"
     })
+    if(document.querySelector("#loginOffer")) {
+        document.querySelector("#loginOffer").classList.add("linkAntique")
+    }
+    if(document.querySelector("#googleBook")) {
+        document.querySelector("#googleBook").classList.add("linkAntique")
+    }
+    if(document.querySelector("#rgoffer")) {
+        document.querySelector("#rgoffer").classList.add("linkAntique")
+    }
+    if(document.querySelector("#lsoffer")) {
+        document.querySelector("#lsoffer").classList.add("linkAntique")
+    }
     document.querySelector("#searchHeader") ? document.querySelector("#searchHeader").style.color = "#fada9e" : ""
     document.querySelector("#indexHeader") ? document.querySelector("#indexHeader").style.color = "#fada9e" : ""
     document.querySelector("#moreResults") ? document.querySelector("#moreResults").style.color = "#fada9e" : ""
@@ -102,6 +119,23 @@ function turnModern() {
     if(document.querySelector("#sendReview")) {
         document.querySelector("#sendReview").classList.remove("sendReviewA")
         document.querySelector("#sendReview").classList.add("sendReview")
+    }
+    if(document.querySelector(".checkbox")) {
+        document.querySelectorAll(".checkbox").forEach(box => {
+            box.classList.remove("checkA")
+        })
+    }
+    if(document.querySelector("#loginOffer")) {
+        document.querySelector("#loginOffer").classList.remove("linkAntique")
+    }
+    if(document.querySelector("#googleBook")) {
+        document.querySelector("#googleBook").classList.remove("linkAntique")
+    }
+    if(document.querySelector("#rgoffer")) {
+        document.querySelector("#rgoffer").classList.remove("linkAntique")
+    }
+    if(document.querySelector("#lsoffer")) {
+        document.querySelector("#lsoffer").classList.remove("linkAntique")
     }
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null

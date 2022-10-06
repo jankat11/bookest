@@ -520,6 +520,7 @@ body {
     margin-top: 10px;
     background-color: #3b9ea3f0 !important;
     border: none !important;
+    color: white !important;
 }
 
 .addBookShelfButton:active, .sendReview:active {
@@ -532,16 +533,6 @@ body {
 
 .addBookShelfButtonA, .sendReviewA  {
     margin-top: 10px;
-    background-color:  #e6ac0f !important;
-    border: none !important;
-}
-
-.addBookShelfButtonA:active, .sendReviewA:active {
-    box-shadow: 0px 0px 0px 3px  #e6ad0f9f !important;
-}
-
-.addBookShelfButtonA:hover, .sendReviewA:hover {
-    background-color:  #b68a12 !important;
 }
 
 #addBookShelf {
@@ -628,10 +619,18 @@ body {
 }
 
 .form-check input:checked {
-    background-color: #3b9ea3f0 !important;
-    border-color: #3b9ea3f0 !important;
+    background-color: #3b9ea3f0 ;
+    border-color: #3b9ea3f0 ;
 }
 
+.checkA:checked {
+    background-color: #432e09 !important;
+    border-color: #ffd200 !important;
+}
+
+.linkAntique {
+    color: #07aadb
+}
 
 #reviewArea {
     width: 100%;

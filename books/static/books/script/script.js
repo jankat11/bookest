@@ -107,6 +107,3 @@ window.onpageshow = function(event) {
 };
 
     
-
-    
-    
