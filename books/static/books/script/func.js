@@ -149,8 +149,11 @@ function lightCandle(candle) {
 
 
 function defaultAddMenu() {
-    document.querySelector("#removeBookShelfButton") ? 
-    document.querySelector("#removeBookShelfButton").disabled = false : null
+    if (document.querySelector("#removeBookShelfButton")) {
+        document.querySelector("#buttonStatus").dataset.status == "False" ?
+        document.querySelector("#removeBookShelfButton").disabled = true : 
+        document.querySelector("#removeBookShelfButton").disabled = false
+    }
     document.querySelector("#addBookShelfButton") ?
     document.querySelector("#addBookShelfButton").disabled = false : null
     document.querySelector("#addspinner") ? 
@@ -160,13 +163,8 @@ function defaultAddMenu() {
 
 function disabledAddMenu() {
     document.querySelector("#removeBookShelfButton") ? 
-    disableRemoveButton() : null
+    document.querySelector("#removeBookShelfButton").disabled = true : null
     document.querySelector("#addspinner").style.display = "inline-block"
 }
 
 
-function disableRemoveButton() {
-    document.querySelector("#buttonStatus").dataset.status == "False" ?
-    document.querySelector("#removeBookShelfButton").disabled = true :
-    document.querySelector("#removeBookShelfButton").disabled = false
-}
