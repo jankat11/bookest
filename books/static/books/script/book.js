@@ -18,6 +18,7 @@ document.getElementById("addBookForm").onsubmit = function(event) {
     if (unChecked == 2) {
         event.preventDefault()
     } else {
+        document.querySelector("#buttonStatus").setAttribute("data-status","True")
         disabledAddMenu()
     } 
 } 
