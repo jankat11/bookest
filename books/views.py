@@ -9,7 +9,7 @@ from django.db import IntegrityError
 from django import forms
 
 from .util import get_book
-from .models import User, Book, BookShelf, Review
+from .models import  User, Book, BookShelf, Review, OrderWillBeRead, OrderHasBeenRead
 # Create your views here.
 
 
@@ -80,6 +80,8 @@ def book(request, id):
     book = None
     book_info = get_book(id)
 
+    book_shelf = BookShelf.objects.get(owner=request.user)
+
     try:
         book = Book.objects.get(google_id=id)
 
@@ -125,10 +127,10 @@ def my_reviews(request):
 def my_books(request):
     try:
         book_shelf = BookShelf.objects.get(owner=request.user)
-        will_be_read = [{"id": book.google_id, "cover": book.no_cover, "title": book.title[0:10]}
-                        for book in book_shelf.will_be_read.all()]
-        has_been_read = [{"id": book.google_id, "cover": book.no_cover, "title": book.title[0:10]}
-                         for book in book_shelf.has_been_read.all()]
+        will_be_read = [{"id": book.book.google_id, "cover": book.book.no_cover, "title": book.book.title[0:10]}
+                        for book in book_shelf.orderwillberead_set.all().order_by("date_time")]
+        has_been_read = [{"id": book.book.google_id, "cover": book.book.no_cover, "title": book.book.title[0:10]}
+                         for book in book_shelf.orderhasbeenread_set.all().order_by("date_time")]
         return render(request, "books/myBooks.html", {
             "form": SearchForm(),
             "has_been_read": has_been_read,
@@ -156,7 +158,7 @@ def add_my_books(request, ids):
             BookShelf.objects.create(owner=request.user)
         book = Book.objects.get(google_id=google_id)
         book_shelf = BookShelf.objects.get(owner=request.user)
-        print(cover_status)
+
         if request.POST["checkbox"] == "will_be_read":
             try:
                 check = book_shelf.will_be_read.get(id=book.id)

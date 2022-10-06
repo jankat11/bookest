@@ -37,8 +37,26 @@ class Review(models.Model):
 
 class BookShelf(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name="book_shelf")
-    will_be_read= models.ManyToManyField(Book, blank=True, related_name="as_will_be_read")
-    has_been_read= models.ManyToManyField(Book, blank=True, related_name="as_has_been_read")
+    will_be_read= models.ManyToManyField(Book, blank=True, related_name="as_will_be_read", through="OrderWillBeRead")
+    has_been_read= models.ManyToManyField(Book, blank=True, related_name="as_has_been_read", through="OrderHasBeenRead")
 
     def __str__(self) -> str:
         return f"{self.owner.username}'s bookshelf"
+
+
+class OrderWillBeRead(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    bookshelf = models.ForeignKey(BookShelf, on_delete=models.CASCADE)
+    date_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"time is: {self.date_time}"
+
+
+class OrderHasBeenRead(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    bookshelf = models.ForeignKey(BookShelf, on_delete=models.CASCADE)
+    date_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"time is: {self.date_time}"
