@@ -1,7 +1,7 @@
 
 // adjust collapse menu position when page load
 document.addEventListener("DOMContentLoaded", () => {
-    menuItems.style.top = 110 + topBar.offsetHeight + 2
+    menuItems.style.top = String(110 + topBar.offsetHeight + 2) + "px"
 })
 
 
@@ -63,8 +63,8 @@ window.addEventListener('scroll', function () {
     $("#navbarToggleExternalContent").collapse("hide")
     if (window.scrollY > 110) {
         topBar.classList.add('fixed-top');
-        section.style.marginTop = topBar.offsetHeight + "px" 
-        menuItems.style.top = topBar.offsetHeight;
+        section.style.marginTop = (2 + topBar.offsetHeight) + "px"
+        menuItems.style.top = topBar.offsetHeight + 2;
         menuItems.style.position = "fixed";
         
     } else {

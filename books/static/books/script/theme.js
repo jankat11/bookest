@@ -7,7 +7,6 @@ function turnAntique() {
     topBar.style.backgroundColor = "#1b0e00eb"
     topBar.style.color = "#fcf5e7"
     topBar.style.boxShadow = "0px 1px 3px 1px rgba(247, 245, 131, 0.288)"
-    topBar.className = "navbar navbar-dark"
     topItems.style.backgroundColor = "#9aa5bd00"
     topItems.style.boxShadow = "none"
     bookIconModern.style.display = "none"
@@ -16,8 +15,6 @@ function turnAntique() {
     subTitle.style.color = "#f7e5b4"
     theme.innerHTML = "modern"
     theme.className = "btn btn-secondary btn-sm chAntique"
-    profile ? profile.style.backgroundColor = "#462303" : ""
-    profile ? profile.style.color = "#fada9e" : ""
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "#ffe7ac" : null
     document.querySelector("#menuItems").style.backgroundColor = "#ffe7ac"
     document.querySelector("#submitLogin") ? document.querySelector("#submitLogin").className = "btn btn-warning loginButton" : ""
@@ -88,13 +85,11 @@ function turnModern() {
     topBar.style.color = "black"
     topBar.style.boxShadow = "1px 1px 3px 1px #456982"
     topBar.style.backgroundColor = "#3b9ea3f0"
-    topBar.className = "navbar navbar-light"
     topItems.style.backgroundColor = "#acdae633"
     topItems.style.boxShadow = "2px 2px 4px 1px #669eaac7"
     theme.innerHTML = "antique"
     theme.className = "btn btn-secondary btn-sm chModern"
-    profile ? profile.style.backgroundColor = "#02bbab31" : ""
-    profile ? profile.style.color = "black" : ""
+
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
     $("#arrow").show()

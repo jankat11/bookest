@@ -44,12 +44,26 @@ body {
 
 
 #topBar {
+    display: flex ; 
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
     margin-top: 0px;
     background-color: #3b9ea3f0;
     padding: 0px;
     width: 100%;
     box-shadow: 0px 1px 3px 1px #456982;
 }
+
+#navWrapper {
+    display: flex;
+    position: absolute;
+    left: 250px;
+    justify-content: space-between;
+    margin-left: 20px ;
+    gap: 50px;
+}
+
 
 #bookIconHistory,
 #bookIconModern {
@@ -73,7 +87,7 @@ body {
 }
 
 .topNavItem, .topNavItemA, #blockBody, #menuItems, .searchInput,
-#profile, #title, #subTitle, #change, .author, .bookName, .searchInputAntique{
+#title, #subTitle, #change, .author, .bookName, .searchInputAntique{
     font-family: "Abyssinica SIL", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -117,21 +131,24 @@ body {
 }
 
 #logOut {
-    margin-right: 10px;
+    position: absolute;
+    right: 10px !important;
 }
+
+
 
 .topNavItem, .topNavItemA {
     font-size: larger;
     font-weight: bolder;
 }
 
-.topNavItem {
-    padding: 11px;
+.topNavItem, .topNavItemA {
+    padding: 8px;
+    display: block;
     color: #022022;
 }
 
 .topNavItemA {
-    padding: 11px;
     color: #f6d981;
 }
 
@@ -142,23 +159,6 @@ body {
 .topNavItemA:hover {
     background-color: rgba(236, 245, 153, 0.288);
 }
-
-#profile {
-    background-color: #02bbab31;
-    padding-left: 5px;
-    padding-right: 5px;
-    position: absolute;
-    font-size: 14px;
-    top: 80px;
-    right: 5px;
-    color: #022022;
-}
-
-#profile:hover {
-    cursor: default;
-}
-
-
 
 
 .menu,
@@ -748,11 +748,14 @@ body {
 }
 
 .loginIcon {
-    margin-right: 20px !important;
-    position: absolute;
-    right: 150px;
-    height: fit-content;
+   position: absolute;
+   right: 110px;
 }
+
+.registerIcon {
+    margin-right: 10px;
+}
+
 
 
 /*--------MEDIA----------*/
@@ -798,9 +801,6 @@ body {
 }
 
 @media (max-width: 640px) {
-    #profile {
-        display: none;
-    }
     #container,
     #bestSeller {
         padding-left: 20px;

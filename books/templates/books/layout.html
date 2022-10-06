@@ -31,10 +31,7 @@
             <div id="subTitle">Internet Book Database</div>
         </div>
     </div>
-    {% if user.is_authenticated %}
-    <span class=" rounded mobileSearch" id="profile">{{ user.username }}</span>
-    {% endif %}
-    <nav id="topBar" class="navbar navbar-light">
+    <nav id="topBar" >
         <form class="form-inline searchForm" id="searchForm" method="post" action="{% url 'index' %}">
             {% csrf_token %}
             <div class="input-group" id="form">
@@ -44,17 +41,28 @@
                   </svg></button>
             </div>
           </form> 
+        <div id="navWrapper">
+            <a class="nav-link" href="{% url 'index' %}"><span class="topNavItem rounded desktop">Home</span> </a>
+            {% if user.is_authenticated %}
         {% if user.is_authenticated %}  
-        <a class="nav-link" href="{% url 'my_books' %}"><span class="topNavItem rounded desktop">My Books</span> </a>
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'my_books' %}"><span class="topNavItem rounded desktop">My Books</span> </a>
+            {% endif %}
         {% endif %} 
+            {% endif %}
+            {% if user.is_authenticated %}
         {% if user.is_authenticated %}  
-        <a class="nav-link " href="{% url 'my_reviews' %}"><span class="topNavItem rounded desktop">My Notes</span> </a>
+            {% if user.is_authenticated %}
+            <a class="nav-link " href="{% url 'my_reviews' %}"><span class="topNavItem rounded desktop">My Notes</span> </a>
+            {% endif %}
         {% endif %} 
+            {% endif %}
+        </div>
         {% if user.is_authenticated %}
-        <a id="logOut " class="nav-link" href="{% url 'logout' %}"><span class="topNavItem rounded desktop">Log Out</span></a>
+        <a id="logOut" class="nav-link" href="{% url 'logout' %}"><span class="topNavItem rounded desktop">Log Out</span></a>
         {% else %} 
         <a class="nav-link loginIcon" href="{% url 'login' %}"><span class="topNavItem rounded desktop">Login</span></a>
-        <a class="nav-link " href="{% url 'register' %}"><span class="topNavItem rounded desktop">Register</span></a>
+        <a class="nav-link registerIcon" href="{% url 'register' %}"><span class="topNavItem rounded desktop">Register</span></a>
         {% endif %}
         <button class="navbar-toggler menu mobile" id="menu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <svg id="threeline" xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="#02202277" class="bi bi-list" viewBox="0 0 16 16">
@@ -63,7 +71,9 @@
         </button>
     </nav>
     <div class="collapse mobile" id="navbarToggleExternalContent">
-        <div id="menuItems" class="p-3">
+        <div id="menuItems" style="text-align: center;" class="p-3">
+            <a class="nav-link mobileNav" href="{% url 'index' %}"><span class="mobileNav rounded">Home
+            </span> </a>
             {% if user.is_authenticated %}  
             <a class="nav-link mobileNav" href="{% url 'my_books' %}"><span class="mobileNav rounded">My Books</span> </a>
             {% endif %} 
@@ -71,7 +81,7 @@
             <a class="nav-link mobileNav" href="{% url 'my_reviews' %}"><span class="mobileNav rounded">My Notes</span> </a>
             {% endif %} 
             {% if user.is_authenticated %}
-            <a id="logOut" class="nav-link mobileNav" href="{% url 'logout' %}"><span class="mobileNav rounded">Log Out</span></a>
+            <a class="nav-link mobileNav" href="{% url 'logout' %}"><span class="mobileNav rounded">Log Out</span></a>
             {% else %} 
             <a class="nav-link mobileNav" href="{% url 'login' %}"><span class="mobileNav rounded">Login</span></a>
             <a class="nav-link mobileNav" href="{% url 'register' %}"><span class="mobileNav rounded">Register</span></a>

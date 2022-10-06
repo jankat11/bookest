@@ -8,7 +8,6 @@ const subTitle = document.querySelector("#subTitle")
 const theme = document.querySelector("#change")
 const topItems = document.querySelector("#topItems")
 const menuItems = document.querySelector("#menuItems")
-const profile = document.querySelector("#profile")
 const description = document.querySelector("#desc")
 
 
