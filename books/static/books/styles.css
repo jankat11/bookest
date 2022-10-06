@@ -136,7 +136,7 @@ body {
 }
 
 .topNavItem:hover {
-    background-color: rgba(170, 190, 219, 0.404);
+    background-color: #ffffff67
 }
 
 .topNavItemA:hover {
@@ -148,10 +148,10 @@ body {
     padding-left: 5px;
     padding-right: 5px;
     position: absolute;
-    font-size: large;
-    font-weight: bold;
+    font-size: 14px;
     top: 80px;
-    right: 10px;
+    right: 5px;
+    color: #022022;
 }
 
 #profile:hover {
@@ -517,8 +517,18 @@ body {
     margin-left: 10px;
 }
 
-#addBookShelfButton {
+#addBookShelfButton, #sendReview  {
     margin-top: 10px;
+    background-color: #3b9ea3f0 !important;
+    border: none;
+}
+
+#addBookShelfButton:active, #sendReview:active {
+    box-shadow: 0px 0px 3px 3px #85c7caf0 !important;
+}
+
+#addBookShelfButton:hover, #sendReview:hover {
+    background-color: #307d81f0 !important;
 }
 
 #addBookShelf {
@@ -605,8 +615,8 @@ body {
 }
 
 .form-check input:checked {
-    background-color: green !important;
-    border-color: green !important;
+    background-color: #3b9ea3f0 !important;
+    border-color: #3b9ea3f0 !important;
 }
 
 
@@ -619,9 +629,6 @@ body {
     margin-left: 10%;
 }
 
-#sendReview {
-    margin-top: 10px;
-}
 
 .timeStamp {
     font-size: smaller;
@@ -777,7 +784,7 @@ body {
     }
 }
 
-@media (max-width: 821px) {
+@media (max-width: 640px) {
     #profile {
         display: none;
     }

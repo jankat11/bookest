@@ -76,27 +76,27 @@ def search(request, book_info):
 
 def book(request, id):
     reviews = ""
-    status = None
+    exist_in_shelf = False
     book = None
     book_info = get_book(id)
 
-    book_shelf = BookShelf.objects.get(owner=request.user)
+    
 
     try:
         book = Book.objects.get(google_id=id)
-
+        book_shelf = BookShelf.objects.get(owner=request.user)
         reviews = sorted([book.serialize() for book in book.reviews.all().filter(
             owner=request.user)], key=lambda review: review["time"], reverse=True)
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
             check_has_read = book_shelf.has_been_read.get(id=book.id)
-            status = "exist in read"
+            exist_in_shelf = True
         except:
             pass
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
             check_will_read = book_shelf.will_be_read.get(id=book.id)
-            status = "exist in will"
+            exist_in_shelf = True
         except:
             pass
     except:
@@ -107,7 +107,7 @@ def book(request, id):
         "book": book_info,
         "reviews": reviews,
         "reviewForm": ReviewForm(),
-        "status": status,
+        "exist": exist_in_shelf,
         "bookId": book.id if book else ""
     })
 
