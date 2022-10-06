@@ -51,7 +51,7 @@ class OrderWillBeRead(models.Model):
     date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return f"time is: {self.date_time}"
+        return f"{self.bookshelf.owner} add {self.book} on {self.date_time}"
 
 
 class OrderHasBeenRead(models.Model):
@@ -60,4 +60,4 @@ class OrderHasBeenRead(models.Model):
     date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return f"time is: {self.date_time}"
+        return f"{self.bookshelf.owner} add {self.book} on {self.date_time}"
