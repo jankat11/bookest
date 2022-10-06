@@ -74,7 +74,7 @@ if(document.querySelector("#removeBookShelfButton")) {
             spinner.style.display = "inline-block"
             document.querySelector("#addBookShelfButton").disabled = true
             this.disabled = true
-            document.querySelector("#buttonStatus").setAttribute("status","False")
+            document.querySelector("#buttonStatus").setAttribute("data-status","False")
             fetch(`/remove_from_bookshelf/${this.dataset.book}`)
             .then(response => response.json())
             .then(result => {
