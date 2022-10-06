@@ -65,27 +65,15 @@ def search(request, book_info):
     })
 
 
-""" def more_results(request, result):
-    book_info = result.split("loadsMore")[0]
-    result_count = result.split("loadsMore")[1]
-    # result = search_book(book_info, result_count)
-    return JsonResponse({
-        "result": "result"
-    }) """
-
-
 def book(request, id):
     reviews = ""
     exist_in_shelf = False
     book = None
     book_info = get_book(id)
-
-    
-
     try:
         book = Book.objects.get(google_id=id)
         book_shelf = BookShelf.objects.get(owner=request.user)
-        reviews = sorted([book.serialize() for book in book.reviews.all().filter(
+        reviews = sorted([review.serialize() for review in book.reviews.all().filter(
             owner=request.user)], key=lambda review: review["time"], reverse=True)
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
@@ -117,9 +105,10 @@ def my_reviews(request):
     user = request.user
     reviews = sorted(user.reviews.all(),
                      key=lambda review: review.time, reverse=True)
+    reviews_serialized = [review.serialize() for review in reviews]
     return render(request, "books/myReviews.html", {
         "form": SearchForm(),
-        "reviews": reviews
+        "reviews": reviews_serialized
     })
 
 

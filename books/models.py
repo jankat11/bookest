@@ -31,6 +31,7 @@ class Review(models.Model):
             "content": self.content,
             "owner": self.owner.username,
             "on_book": self.on_book.google_id,
+            "book": self.on_book.title,
             "time": self.time.strftime("%b %d %Y, %H:%M") 
         }
 
