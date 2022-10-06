@@ -568,8 +568,8 @@ body {
     margin: 0px;
     margin-bottom: 11px;
     padding-top: 25px;
-    padding-left: 10px;
-    padding-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
     font-size: 8px; 
     display: inline-block;
 }
@@ -606,6 +606,16 @@ body {
     background-image: url("/static/books/images/shelfAntique.png");
     background-repeat: repeat;
     min-height: 130px;
+}
+
+.readShelfAntique, .readShelfModern {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.already {
+    border-radius: 80%;
+    box-shadow: #de7e99 0px -2px 15px 8px;
 }
 
 #bottomShelf,

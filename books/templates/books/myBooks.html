@@ -6,9 +6,19 @@
 <div id="theShelf">
     {% if messages %}
         <div class="messages">
+
         {% for message in messages %}
-          <h6{% if message.tags %} class="{{ message.tags }} messages"{% endif %}>{{ message }}</h6><br>
+        {% if message.tags == "info" %}
+        <h6 class="{{ message.tags }} messages messagesInfo">{{message}}</h6><br>
+          {% endif %}
         {% endfor %}
+
+        {% for message in messages %}
+        {% if message.tags == "warning" %}
+        <input class="{{ message.tags }} messages" id="secret" type="hidden" value="{{message}}">
+        {% endif %}
+        {% endfor %}
+
         </div>
     {% else %}
     <br>
@@ -18,7 +28,7 @@
     <div id="topShelf" class="readShelfModern">
     {% for book_w in will_be_read %}
         <div id="{{book_w.id}}"  class="bookOnTheShelf">
-            <img  src="{% if book_w.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_w.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image">       
+            <div><img  src="{% if book_w.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_w.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image"></div>       
             <div class="{% if book_w.cover %}titleForNoCover{% else %}titleForCover{% endif %}">{{book_w.title}}</div>          
         </div>
     {% empty %}
@@ -31,7 +41,7 @@
     <div id="bottomShelf" class="readShelfModern">
     {% for book_h in has_been_read %}
         <div  id="{{book_h.id}}" class="bookOnTheShelf">
-            <img  src="{% if book_h.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_h.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image">
+            <div><img  src="{% if book_h.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_h.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image"></div>
             <div class="{% if book_h.cover %}titleForNoCover{% else %}titleForCover{% endif %}">{{book_h.title}}</div>
         </div>
     {% empty %}

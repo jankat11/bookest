@@ -20,3 +20,13 @@ if (messages) {
     messages.firstElementChild.innerHTML = check :
     messages.firstElementChild.innerHTML = "".concat(exclamation, message)
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.querySelector("#secret")) {
+        document.querySelectorAll(".bookOnTheShelf").forEach(book => {
+            if (book.id == document.querySelector("#secret").value) {
+                book.firstElementChild.classList.add("already")
+            }
+        })
+    }
+})
