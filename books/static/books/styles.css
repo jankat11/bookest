@@ -517,18 +517,32 @@ body {
     margin-left: 10px;
 }
 
-#addBookShelfButton, #sendReview  {
+.addBookShelfButton, .sendReview  {
     margin-top: 10px;
     background-color: #3b9ea3f0 !important;
-    border: none;
+    border: none !important;
 }
 
-#addBookShelfButton:active, #sendReview:active {
+.addBookShelfButton:active, .sendReview:active {
     box-shadow: 0px 0px 3px 3px #85c7caf0 !important;
 }
 
-#addBookShelfButton:hover, #sendReview:hover {
+.addBookShelfButton:hover, .sendReview:hover {
     background-color: #307d81f0 !important;
+}
+
+.addBookShelfButtonA, .sendReviewA  {
+    margin-top: 10px;
+    background-color:  #a18c52 !important;
+    border: none !important;
+}
+
+.addBookShelfButtonA:active, .sendReviewA:active {
+    box-shadow: 0px 0px 3px 3px  #a18c528f !important;
+}
+
+.addBookShelfButtonA:hover, .sendReviewA:hover {
+    background-color:  #79693e!important;
 }
 
 #addBookShelf {

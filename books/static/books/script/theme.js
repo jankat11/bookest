@@ -27,6 +27,14 @@ function turnAntique() {
             item.className = "reviewItem border border-warning rounded"
         })
     }
+    if(document.querySelector("#addBookShelfButton")) {
+        document.querySelector("#addBookShelfButton").classList.remove("addBookShelfButton")
+        document.querySelector("#addBookShelfButton").classList.add("addBookShelfButtonA")
+    }
+    if(document.querySelector("#sendReview")) {
+        document.querySelector("#sendReview").classList.remove("sendReview")
+        document.querySelector("#sendReview").classList.add("sendReviewA")
+    }
     $(".topNavItem").addClass("topNavItemA")
     $(".topNavItemA").removeClass("topNavItem")
     $("#arrow").hide()
@@ -92,6 +100,14 @@ function turnModern() {
     $("#arrow").show()
     $("#chWrapper").css("background-color", "#3a3a3a50")
     $("#threeline").attr("fill", "#02202277")
+    if(document.querySelector("#addBookShelfButton")) {
+        document.querySelector("#addBookShelfButton").classList.remove("addBookShelfButtonA")
+        document.querySelector("#addBookShelfButton").classList.add("addBookShelfButton")
+    }
+    if(document.querySelector("#sendReview")) {
+        document.querySelector("#sendReview").classList.remove("sendReviewA")
+        document.querySelector("#sendReview").classList.add("sendReview")
+    }
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "white" : null
     document.querySelector(".searchInputAntique") ? document.querySelector(".searchInputAntique").className = "searchInput border" : null
     document.querySelector("#menuItems").style.backgroundColor = "#c8e0e2"

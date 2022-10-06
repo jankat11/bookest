@@ -53,7 +53,7 @@
                 </div>
                 <input name="no_cover" value="{% if book.image %}cover exist{% else %}no cover{% endif %}" type="hidden">
          
-            <input id="addBookShelfButton"  class="btn btn-success btn-sm shadow-none" type="submit" value="Add">
+            <input id="addBookShelfButton"  class="btn btn-success btn-sm shadow-none addBookShelfButton" type="submit" value="Add">
             <span id="addspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>
         </form>
       
@@ -76,7 +76,7 @@
             {% csrf_token %}
         
             <div id="reviewTextarea">{{reviewForm}}</div>
-            <input id="sendReview" class="btn btn-success btn-sm shadow-none" type="submit" value="Send">
+            <input id="sendReview" class="btn btn-success btn-sm shadow-none sendReview" type="submit" value="Send">
         </form>
     {% else %}
         <a style="position: relative; bottom: 20px;" href="{% url 'login' %}"><h5>Login to write note</h5></a>
