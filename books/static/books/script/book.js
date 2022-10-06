@@ -1,8 +1,9 @@
 
-
-document.querySelector("#buttonStatus").dataset.status == "False" ?
-document.querySelector("#removeBookShelfButton").disabled = true :
-document.querySelector("#removeBookShelfButton").disabled = false
+(function() {
+    document.querySelector("#buttonStatus").dataset.status == "False" ?
+    document.querySelector("#removeBookShelfButton").disabled = true :
+    document.querySelector("#removeBookShelfButton").disabled = false
+})()
 
 
 document.getElementById("addBookForm").onsubmit = function(event) {

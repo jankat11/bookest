@@ -140,11 +140,13 @@ function darkCandle(candle) {
     $(candle).next().fadeOut(1)
 }
 
+
 function lightCandle(candle) { 
     candle.style.backgroundColor = "#f1efc783"
     candle.style.boxShadow = "0px 0px 30px 20px #f1efc791"
     $(candle).next().fadeIn(95)
 }
+
 
 function defaultAddMenu() {
     document.querySelector("#removeBookShelfButton") ? 
@@ -155,9 +157,16 @@ function defaultAddMenu() {
     document.querySelector("#addspinner").style.display = "none" : null
 }
 
+
 function disabledAddMenu() {
     document.querySelector("#removeBookShelfButton") ? 
-    document.querySelector("#removeBookShelfButton").disabled = true : null
-    document.querySelector("#addBookShelfButton").disabled = true
+    disableRemoveButton() : null
     document.querySelector("#addspinner").style.display = "inline-block"
+}
+
+
+function disableRemoveButton() {
+    document.querySelector("#buttonStatus").dataset.status == "False" ?
+    document.querySelector("#removeBookShelfButton").disabled = true :
+    document.querySelector("#removeBookShelfButton").disabled = false
 }
