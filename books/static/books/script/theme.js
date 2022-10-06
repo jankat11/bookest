@@ -34,7 +34,7 @@ function turnAntique() {
     }
     $(".topNavItem").addClass("topNavItemA")
     $(".topNavItemA").removeClass("topNavItem")
-    $("#arrow").hide()
+    $("#arrow").attr("fill", "#e6c89070")
     $("#chWrapper").css("background-color", "#3a3a3a00")
     $("#threeline").attr("fill", "#fada9ec0")
     document.querySelector(".searchInput") ? document.querySelector(".searchInput").className = "searchInputAntique" : null
@@ -92,7 +92,7 @@ function turnModern() {
 
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
-    $("#arrow").show()
+    $("#arrow").attr("fill", "white")
     $("#chWrapper").css("background-color", "#3a3a3a50")
     $("#threeline").attr("fill", "#02202277")
     if(document.querySelector("#addBookShelfButton")) {
