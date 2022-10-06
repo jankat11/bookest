@@ -151,7 +151,6 @@ function lightCandle(candle) {
 function defaultAddMenu() {
     if (document.querySelector("#removeBookShelfButton")) {
         document.querySelector("#rmspinner").display = "none"
-        document.querySelector("#rmspinner").innerHTML = '<img src="static/books/images/spinner.gif" alt="asd" width="20" height="20">'
         document.querySelector("#buttonStatus").dataset.status == "False" ?
         document.querySelector("#removeBookShelfButton").disabled = true : 
         document.querySelector("#removeBookShelfButton").disabled = false
