@@ -105,9 +105,9 @@ body {
 #subTitle {
     margin-left: 75px;
     position: relative;
-    bottom: 19px;
+    bottom: 21px;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .searchForm {
@@ -770,9 +770,8 @@ body {
 }
 
 .picicon {
-    border-radius: 50%;
     position: relative;
-    bottom: 5px;
+    bottom: 2px;
 }
 
 /*--------MEDIA----------*/
