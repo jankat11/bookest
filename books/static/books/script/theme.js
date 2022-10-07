@@ -2,6 +2,7 @@
 //FUNCTIONS TO TOGGLE BETWEEN THEMES ANTIQUE/MODERN
 
 function turnAntique() {
+    $("body").hide()
     localStorage.setItem('status', "antique");
     document.querySelector("#menu").className = "navbar-toggler menuHistory mobile";
     topBar.style.backgroundColor = "#1b0e00eb"
@@ -89,10 +90,12 @@ function turnAntique() {
     if (document.querySelector("#bookGenre")) {
         document.querySelector("#bookGenre").className = "bookGenreAntique"
     }
+    $("body").fadeIn()
 }
 
 
 function turnModern() {
+    $("body").hide()
     localStorage.setItem('status', "modern");
     document.querySelector("#menu").className = "navbar-toggler menu mobile"
     bookIconModern.style.display = "inline-block"
@@ -180,4 +183,5 @@ function turnModern() {
     if (document.querySelector("#bookGenre")) {
         document.querySelector("#bookGenre").className = "bookGenreModern border"
     }
+    $("body").fadeIn()
 }

@@ -769,7 +769,13 @@ body {
     margin-right: 10px;
 }
 
-
+.picicon {
+    border-radius: 50%;
+    opacity: 0.8;
+    border: solid 1px #ffc0cb73;
+    position: relative;
+    top: 1px;
+}
 
 /*--------MEDIA----------*/
 
