@@ -28,7 +28,10 @@
             <img id="bookIconModern" class="rounded-circle" src="{% static 'books/images/bookIconModern.png' %}" alt="not loaded">
             <img id="bookIconHistory" style="display: none;" class="rounded-circle" src="{% static 'books/images/bookIconHistory.png' %}" alt="not loaded">
             <div id="title">BOOKEST</div>
-            <div id="subTitle">In Your Humble Library</div>
+            <div id="subTitle">
+    
+                In Your Humble Library
+            </div>
         </div>
     </div>
     <nav id="topBar" >
@@ -43,7 +46,6 @@
           </form>
           
         <div id="navWrapper">
-            <a id="coffee" href="{% url 'my_books' %}" class="mobile" ><img class="picicon" src="{% static 'books/images/coffee.png' %}" width="30"></a>
             <a class="nav-link" href="{% url 'index' %}"><span class="topNavItem rounded desktop">Home
             </span> </a>
             {% if user.is_authenticated %}

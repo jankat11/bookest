@@ -39,6 +39,8 @@ function turnAntique() {
         })
     }
     $(".topNavItem").addClass("topNavItemA")
+    $("#coffeeModern").hide()
+    $("#coffeeAntique").show()
     $(".topNavItemA").removeClass("topNavItem")
     $("#arrow").attr("fill", "#e6c89070")
     $("#chWrapper").css("background-color", "#3a3a3a00")
@@ -109,7 +111,8 @@ function turnModern() {
     topItems.style.boxShadow = "2px 2px 4px 1px #669eaac7"
     theme.innerHTML = "antique"
     theme.className = "btn btn-secondary btn-sm chModern"
-
+    $("#coffeeModern").show()
+    $("#coffeeAntique").hide()
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
     $("#arrow").attr("fill", "white")

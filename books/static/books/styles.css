@@ -107,7 +107,7 @@ body {
     position: relative;
     bottom: 19px;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .searchForm {
@@ -771,10 +771,8 @@ body {
 
 .picicon {
     border-radius: 50%;
-    opacity: 0.8;
-    border: solid 1px #ffc0cb73;
     position: relative;
-    top: 1px;
+    bottom: 5px;
 }
 
 /*--------MEDIA----------*/

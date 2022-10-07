@@ -24,7 +24,10 @@
     <br>
     {% endif %}
     
-    <h3 class="readShelf readShelfTop">Will be read</h3>
+    <h3 class="readShelf readShelfTop">Will be read
+        <img id="coffeeModern" class="picicon" src="{% static 'books/images/coffee.png' %}" width="22">
+        <img id="coffeeAntique" style="display: none; position: relative; bottom: 7px;"  src="{% static 'books/images/coffeeA.png' %}" width="32">
+    </h3>
     <div id="topShelf" class="readShelfModern">
     {% for book_w in will_be_read %}
         <div id="{{book_w.id}}"  class="bookOnTheShelf">
