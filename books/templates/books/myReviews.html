@@ -7,7 +7,7 @@
         {% for review in reviews %}
         <div class="myReviewItem"><hr> 
             <div class="lastDelete" ><button style="padding-top: 0.1rem; padding-bottom: 0.1rem;" id="{{review.id}}" class="delete btn btn-danger btn-sm shadow-none">X</button></div>
-            <div style="display: flex;">
+            <div class="bookNotesHeader">
                 <a class="reviewImage" href="/book/{{review.on_book}}">
                     <img width="60" src="http://books.google.com/books/content?id={{review.on_book}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" alt="">
                 </a>

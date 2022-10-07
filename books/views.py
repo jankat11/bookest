@@ -123,7 +123,7 @@ def add_my_books(request, ids):
                 if check is not None:
                     messages.warning(request, check.google_id)
                     messages.info(
-                        request, "This book already in 'will be read' shelf")
+                        request, "This book is already in 'will be read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
@@ -142,7 +142,7 @@ def add_my_books(request, ids):
                 if check is not None:
                     messages.warning(request, check.google_id)
                     messages.info(
-                        request, "This book already in 'has been read' shelf")
+                        request, "This book is already in 'has been read' shelf")
                     return HttpResponseRedirect(reverse("my_books"))
             except:
                 pass
@@ -171,7 +171,7 @@ def get_review(request, ids):
         user = request.user
         content = request.POST["review"].replace("\n", "<br>")
         Review.objects.create(owner=user, on_book=book, content=content)
-        messages.info(request,  "your note successfully added")
+        messages.info(request,  "your note was successfully added")
         return HttpResponseRedirect(f"/book/{google_id}")
 
 
