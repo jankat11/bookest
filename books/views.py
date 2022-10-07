@@ -7,7 +7,6 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 
-
 from .util import get_book
 from .models import  User, Book, BookShelf, Review
 from .forms import ReviewForm, SearchForm, LoginForm, RegisterForm
@@ -49,14 +48,12 @@ def book(request, id):
             owner=request.user)], key=lambda review: review["time"], reverse=True)
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
-            check_has_read = book_shelf.has_been_read.get(id=book.id)
-            exist_in_shelf = True
+            exist_in_shelf = bool(book_shelf.has_been_read.get(id=book.id))
         except:
             pass
         try:
             book_shelf = BookShelf.objects.get(owner=request.user)
-            check_will_read = book_shelf.will_be_read.get(id=book.id)
-            exist_in_shelf = True
+            exist_in_shelf = bool(book_shelf.will_be_read.get(id=book.id))
         except:
             pass
     except:
