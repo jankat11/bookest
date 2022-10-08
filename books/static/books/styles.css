@@ -548,6 +548,8 @@ body {
 .emptyShelf {
     margin: 20px;
     font-weight: 400;
+    position: relative;
+    top: 30px;
 }
 
 .readShelfTop {
@@ -562,6 +564,10 @@ body {
  .readShelfAntique, .messages {
     width: 900px;
     margin: auto;
+}
+
+.readShelf {
+    border-bottom: solid #53524a2f 1px;
 }
 
 .bookOnTheShelf {
@@ -772,8 +778,27 @@ body {
 .picicon {
     position: relative;
     bottom: 2px;
+    opacity: 0.77;
 }
 
+#coffeeAntique {
+    display: none;
+    position: relative;
+    bottom: 4px;
+    right: 2px;
+}
+
+#completedA {
+    display: none;
+    opacity: 0.77;
+}
+
+.completed{
+    position: relative;
+    opacity: 0.77;
+    bottom: 3px;
+    right: 5px;
+}
 /*--------MEDIA----------*/
 
 @media (max-width: 1023px) {

@@ -26,7 +26,7 @@
     
     <h3 class="readShelf readShelfTop">Will be read
         <img id="coffeeModern" class="picicon" src="{% static 'books/images/coffee.png' %}" width="30">
-        <img id="coffeeAntique" style="display: none; position: relative; bottom: 7px; right: 2px;"  src="{% static 'books/images/coffeeA.png' %}" width="35">
+        <img id="coffeeAntique" src="{% static 'books/images/coffeeA.png' %}" width="30">
     </h3>
     <div id="topShelf" class="readShelfModern">
     {% for book_w in will_be_read %}
@@ -40,7 +40,10 @@
     </div>
 
     
-    <h3 class="readShelf readShelfBottom">Has been read</h3>
+    <h3 class="readShelf readShelfBottom">Has been read
+        <img id="completed" class="completed" src="{% static 'books/images/complete.png' %}" width="24">
+        <img id="completedA" class="completed" src="{% static 'books/images/completeA.png' %}" width="25">
+    </h3>
     <div id="bottomShelf" class="readShelfModern">
     {% for book_h in has_been_read %}
         <div  id="{{book_h.id}}" class="bookOnTheShelf">

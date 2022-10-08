@@ -13,7 +13,7 @@ function turnAntique() {
     bookIconModern.style.display = "none"
     bookIconHistory.style.display = "inline-block"
     title.style.color = "#ffc46c"
-    subTitle.style.color = "#f7e5b4"
+    subTitle.style.color = "#ffc46c"
     theme.innerHTML = "modern"
     theme.className = "btn btn-secondary btn-sm chAntique"
     document.querySelector("#reviewArea") ? document.querySelector("#reviewArea").style.backgroundColor = "#ffe7ac" : null
@@ -41,6 +41,8 @@ function turnAntique() {
     $(".topNavItem").addClass("topNavItemA")
     $("#coffeeModern").hide()
     $("#coffeeAntique").show()
+    $("#completed").hide()
+    $("#completedA").show()
     $(".topNavItemA").removeClass("topNavItem")
     $("#arrow").attr("fill", "#e6c89070")
     $("#chWrapper").css("background-color", "#3a3a3a00")
@@ -113,6 +115,8 @@ function turnModern() {
     theme.className = "btn btn-secondary btn-sm chModern"
     $("#coffeeModern").show()
     $("#coffeeAntique").hide()
+    $("#completedA").hide()
+    $("#completed").show()
     $(".topNavItemA").addClass("topNavItem")
     $(".topNavItem").removeClass("topNavItemA")
     $("#arrow").attr("fill", "white")
