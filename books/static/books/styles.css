@@ -790,7 +790,9 @@ body {
 
 #completedA {
     display: none;
-    opacity: 0.6;
+    opacity: 0.61;
+    position: relative;
+    bottom: 3px;
 }
 
 .completed{
