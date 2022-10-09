@@ -790,13 +790,13 @@ body {
 
 #completedA {
     display: none;
-    opacity: 0.77;
+    opacity: 0.6;
 }
 
 .completed{
     position: relative;
-    opacity: 0.77;
-    bottom: 3px;
+    opacity: 0.65;
+    bottom: 2px;
     right: 5px;
 }
 /*--------MEDIA----------*/
