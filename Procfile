@@ -1,0 +1,1 @@
+web: gunicorn bookest.wsgi --log-file -

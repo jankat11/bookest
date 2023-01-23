@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", ".railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -127,7 +127,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
-""" STATIC_ROOT = os.path.join(BASE_DIR, 'books/static')  """
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
 
 # Default primary key field type
@@ -136,7 +136,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-""" STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
-]  """
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, 'static') 
+] 
