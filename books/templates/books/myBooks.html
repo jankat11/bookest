@@ -1,0 +1,60 @@
+{% extends 'books/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<div id="theShelf">
+    {% if messages %}
+        <div class="messages">
+
+        {% for message in messages %}
+        {% if message.tags == "info" %}
+        <h6 class="{{ message.tags }} messages messagesInfo">{{message}}</h6><br>
+          {% endif %}
+        {% endfor %}
+
+        {% for message in messages %}
+        {% if message.tags == "warning" %}
+        <input class="{{ message.tags }} messages" id="secret" type="hidden" value="{{message}}">
+        {% endif %}
+        {% endfor %}
+
+        </div>
+    {% else %}
+    <br>
+    {% endif %}
+    
+    <h3 class="readShelf readShelfTop">Will be read
+        <img id="coffeeModern" class="picicon" src="{% static 'books/images/coffee.png' %}" width="30">
+        <img id="coffeeAntique" src="{% static 'books/images/coffeeA.png' %}" width="30">
+    </h3>
+    <div id="topShelf" class="readShelfModern">
+    {% for book_w in will_be_read %}
+        <div id="{{book_w.id}}"  class="bookOnTheShelf">
+            <div><img  src="{% if book_w.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_w.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image"></div>       
+            <div class="{% if book_w.cover %}titleForNoCover{% else %}titleForCover{% endif %}">{{book_w.title}}</div>          
+        </div>
+    {% empty %}
+        <span class="emptyShelf">This bookshelf is empty</span>
+    {% endfor %}
+    </div>
+
+    
+    <h3 class="readShelf readShelfBottom">Has been read
+        <img id="completed" class="completed" src="{% static 'books/images/complete.png' %}" width="24">
+        <img id="completedA" class="completed" src="{% static 'books/images/completeA.png' %}" width="25">
+    </h3>
+    <div id="bottomShelf" class="readShelfModern">
+    {% for book_h in has_been_read %}
+        <div  id="{{book_h.id}}" class="bookOnTheShelf">
+            <div><img  src="{% if book_h.cover %}/static/books/images/noimage.png{% else %}http://books.google.com/books/content?id={{book_h.id}}&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api{% endif %}" height="75" alt="no image"></div>
+            <div class="{% if book_h.cover %}titleForNoCover{% else %}titleForCover{% endif %}">{{book_h.title}}</div>
+        </div>
+    {% empty %}
+        <span class="emptyShelf">This bookshelf is empty</span>
+    {% endfor %}
+    </div>
+
+</div>
+<script src="{% static 'books/script/mybooks.js' %}"></script>
+{% endblock %}

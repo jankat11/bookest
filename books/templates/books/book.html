@@ -1,0 +1,114 @@
+
+{% extends "books/layout.html" %}
+{% load static %}
+{% block body %}
+{% if messages %}
+<div class="addedSuccesful">
+{% for message in messages %}
+<h6{% if message.tags %} class="{{ message.tags }} bookSwitch addedSuccesful"{% endif %}>{{ message }}</h6>
+{% endfor %}
+</div>
+{% endif %}
+
+<h2 class="bookSwitch" id="bookTitle">{{book.title}}</h2>
+<div class="bookSwitch" id="bookContainer">
+    <div class="bookTopInfo" > 
+    <div><img src="{% if book.image %}{{book.image}}{% else %}/static/books/images/noimage.png{% endif %}" width="150" alt=""></div>
+    <div id="bookOverView">
+        
+        {% if book.author%}
+        <div class="bookInfoAuthor"><b>{{book.author}}</b></div>
+        {% endif %}
+        {% if book.publishedDate%}
+        <div class="bookInfoItem">published: {{book.publishedDate}}</div>
+        {% endif %}
+        {% if book.pageCount %}
+        <div class="bookInfoItem">page count: {{book.pageCount}}</div>
+        {% endif %}
+        {% if book.categories %}
+        <div class="bookInfoItem">categories: {{book.categories}}</div>
+        {% endif %}
+<!--         <div class="bookInfoItem">look on
+            <a id="googleBook" href="{{book.googleBooks}}">Google Books</a>
+        </div> -->
+    </div>
+    </div>
+    {% if book.description %}
+    <div class="lead bookSwitch" id="description">
+        <h4>About:</h4><span id="desc">{{book.description}}</span>
+    </div>
+    {% endif %}
+    <div id="addBookShelf">
+        <h5>Add to bookshelf</h5>
+        <form class="form-group" data-login="{{user.is_authenticated}}" id="addBookForm" method="post" action="/add_my_books/{{book.google_id}}---{{book.isbn}}---{{book.title}}">
+            {% csrf_token %}
+            
+                <div class="form-check">
+                    <input name="checkbox" class="checkbox form-check-input shadow-none" type="checkbox" value="will_be_read" id="will_be_read">
+                    <label class="form-check-label" for="will_be_read">will be read</label>
+                </div>
+                <div class="form-check">
+                    <input name="checkbox" class="checkbox form-check-input shadow-none" type="checkbox" value="has_been_read" id="has_been_read">
+                    <label class="form-check-label" for="has_been_read">has been read</label>
+                </div>
+                <input name="no_cover" value="{% if book.image %}cover exist{% else %}no cover{% endif %}" type="hidden">
+         
+            <input id="addBookShelfButton"  class="btn btn-warning btn-sm addBookShelfButton shadow-none" type="submit" value="Add">
+            <span id="addspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>
+        </form>
+      
+       
+            <span id="buttonWrapper">
+                <button id="removeBookShelfButton" data-book="{{bookId}}" class="btn btn-danger btn-sm">
+                    Remove from bookshelf
+                </button>
+                <input id="buttonStatus" data-status="{{exist}}" type="hidden">
+            </span>
+            <span id="rmspinner"><img src="{% static 'books/images/spinner.gif' %}" alt="asd" width="20" height="20"></span>
+        
+     
+    </div>
+</div>
+
+<div class="bookSwitch review" >
+    {% if user.is_authenticated %}
+        <form id="reviewForm" class="form-group" action="/get_review/{{book.google_id}}---{{book.isbn}}---{{book.title}}" method="post" >
+            {% csrf_token %}
+        
+            <div id="reviewTextarea">{{reviewForm}}</div>
+            <input id="sendReview" class="btn btn-warning btn-sm sendReview shadow-none" type="submit" value="Send">
+        </form>
+    {% else %}
+        <a id="loginOffer" style="position: relative; bottom: 20px;" href="{% url 'login' %}"><h6>Login to write note</h6></a>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    {% if reviews %}
+        <h4>Notes you wrote:</h4>
+    {% else %}
+        <h4>Notes you wrote:</h4>
+    {% endif %}
+    <hr class="bookSwitch ">
+
+    <div class="reviewSection">
+        {% for review in reviews %}
+        <div class="reviewItem border border-secondary rounded">  
+            <div class="reviewContent lead">{{review.content}}</div> 
+            <div style="display: flex; justify-content:space-between; width: 100%;">
+                <div class="timeStamp">{{review.time}}</div>
+                {% if user.is_authenticated and review.owner == user.username %}
+                <div class="deleteReview"><button id="{{review.id}}" class="delete btn btn-link btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#858585" class="bi bi-trash3" viewBox="0 0 16 16">
+                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                  </svg></button></div>
+                {% endif %}
+            </div>
+        </div>     
+    {% empty %}
+        <h5 class="pageEnd">You did not write note yet.</h5>
+    {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<script src="{% static 'books/script/book.js' %}"></script>
+{% endblock %}
