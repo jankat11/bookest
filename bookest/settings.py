@@ -129,12 +129,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-if DEBUG:
-    STATICFILES_DIRS=['staticfiles']
-    STATIC_ROOT = None
-else:
-    STATICFILES_DIRS=[]
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'books/static'),] # new
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # new
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
