@@ -35,6 +35,21 @@ def search(request, book_info):
     })
 
 
+
+""" DENEME """
+
+def api(request):
+    user = User.objects.get(username="cankat")
+    return JsonResponse({
+        "user": user.username,
+        "email": user.email
+    })
+    
+
+
+"""  DENEME  """
+
+
 def book(request, id):
     reviews = ""
     exist_in_shelf = False
