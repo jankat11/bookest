@@ -155,4 +155,5 @@ CSRF_TRUSTED_ORIGINS = ['https://bookest.up.railway.app']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://bookest.netlify.app"
 ]
